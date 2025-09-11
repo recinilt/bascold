@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASCOLD SOĞUTMA - Profesyonel Soğutma Çözümleri</title>
+    <meta name="description" content="Profesyonel soğutma sistemleri, evaporatör, kondenser ve soğutma ekipmanları konusunda uzman şirket.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header - Sabit Üst Kısım */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #1e40af;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #1e40af;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('resim1.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+
+        .service-card p {
+            color: #64748b;
+        }
+
+        /* Products Section */
+        .products {
+            background: #f8fafc;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e40af;
+        }
+
+        .product-content p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #1e40af;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e40af;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Fixed Contact Buttons */
+        .fixed-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-btn {
+            background: #10b981;
+        }
+
+        .phone-btn:hover {
+            background: #059669;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .navbar {
+                padding: 1rem 3%;
+            }
+
+            .section {
+                padding: 60px 3%;
+            }
+
+            .fixed-contact {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .contact-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Image Slider */
+        .image-slider {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: white;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 150px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">BASCOLD SOĞUTMA</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#about">Hakkımızda</a></li>
+                <li><a href="#services">Hizmetler</a></li>
+                <li><a href="#products">Ürünler</a></li>
+                <li><a href="#contact">İletişim</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero parallax" id="home">
+        <div class="hero-content">
+            <h1>Profesyonel Soğutma Çözümleri</h1>
+            <p>40+ Yıllık Tecrübeyle Soğutma ve Isıtma Sektöründe Lider Çözümler</p>
+            <a href="#contact" class="cta-button">İletişime Geç</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text loading">
+                    <p>BASCOLD Soğutma, 1986 yılında kurulduğundan bu yana seri ve özel üretim evaporatör, kondenser ve ısı değiştiricileri ile hizmet vermektedir.</p>
+                    <p>Şirketimiz modern teknoloji ile donatılmış fabrikamızda kaliteli ürünler üretmekte ve müşteri memnuniyetini her zaman önde tutmaktadır.</p>
+                    <p>Uzman ekibimiz ile endüstriyel soğutma sistemleri, ticari soğutma çözümleri ve özel projeler konusunda geniş bir yelpazede hizmet sunmaktayız.</p>
+                </div>
+                <div class="about-image loading">
+                    <img src="resim2.jpg" alt="Fabrika Görünümü">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2>Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Evaporatör Sistemleri</h3>
+                    <p>Soğuk oda evaporatörleri, endüstriyel evaporatörler ve özel tasarım soğutma çözümleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Kondenser Sistemleri</h3>
+                    <p>Hava soğutmalı, su soğutmalı ve evaporatif kondenser sistemleri ile ısı atım çözümleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Teknik Servis</h3>
+                    <p>7/24 teknik destek, bakım-onarım hizmetleri ve sistem optimizasyonu</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Proje Danışmanlığı</h3>
+                    <p>Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Endüstriyel Çözümler</h3>
+                    <p>Gıda sanayii, kimya, ilaç ve diğer endüstri kolları için özel soğutma sistemleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Kalite Garantisi</h3>
+                    <p>CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <h2>Ürünlerimiz</h2>
+            
+            <!-- Image Slider -->
+            <div class="image-slider">
+                <div class="slide active">
+                    <img src="resim3.jpg" alt="Evaporatör Sistemleri">
+                </div>
+                <div class="slide">
+                    <img src="resim4.jpg" alt="Kondenser Sistemleri">
+                </div>
+                <div class="slide">
+                    <img src="resim5.jpg" alt="Soğutma Grupları">
+                </div>
+                <div class="slider-nav">
+                    <span class="nav-dot active" onclick="currentSlide(1)"></span>
+                    <span class="nav-dot" onclick="currentSlide(2)"></span>
+                    <span class="nav-dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card loading">
+                    <div class="product-image">
+                        <img src="resim6.jpg" alt="Soğuk Oda Evaporatörleri">
+                    </div>
+                    <div class="product-content">
+                        <h3>Soğuk Oda Evaporatörleri</h3>
+                        <p>Yüksek verimli, dayanıklı ve sessiz çalışma özellikli soğuk oda evaporatörleri</p>
+                    </div>
+                </div>
+                <div class="product-card loading">
+                    <div class="product-image">
+                        <img src="resim7.jpg" alt="Hava Soğutmalı Kondenserler">
+                    </div>
+                    <div class="product-content">
+                        <h3>Hava Soğutmalı Kondenserler</h3>
+                        <p>Enerji tasarruflu, kompakt tasarım hava soğutmalı kondenser sistemleri</p>
+                    </div>
+                </div>
+                <div class="product-card loading">
+                    <div class="product-image">
+                        <img src="resim8.jpg" alt="Endüstriyel Soğutma Grupları">
+                    </div>
+                    <div class="product-content">
+                        <h3>Endüstriyel Soğutma Grupları</h3>
+                        <p>Büyük kapasiteli endüstriyel tesisler için özel tasarım soğutma grupları</p>
+                    </div>
+                </div>
+                <div class="product-card loading">
+                    <div class="product-image">
+                        <img src="resim9.jpg" alt="Kompakt Soğutma Üniteleri">
+                    </div>
+                    <div class="product-content">
+                        <h3>Kompakt Soğutma Üniteleri</h3>
+                        <p>Küçük ve orta ölçekli işletmeler için pratik soğutma çözümleri</p>
+                    </div>
+                </div>
+                <div class="product-card loading">
+                    <div class="product-image">
+                        <img src="resim10.jpg" alt="Özel Tasarım Sistemler">
+                    </div>
+                    <div class="product-content">
+                        <h3>Özel Tasarım Sistemler</h3>
+                        <p>Müşteri ihtiyaçlarına göre tasarlanan özel soğutma ve ısıtma sistemleri</p>
+                    </div>
+                </div>
+                <div class="product-card loading">
+                    <div class="product-image">
+                        <img src="resim11.jpg" alt="Yedek Parça ve Aksesuar">
+                    </div>
+                    <div class="product-content">
+                        <h3>Yedek Parça ve Aksesuar</h3>
+                        <p>Orijinal yedek parçalar, filtreler ve sistem aksesuarları</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats parallax" id="stats">
+        <div class="container">
+            <h2>Rakamlarla BASCOLD</h2>
+            <div class="stats-grid">
+                <div class="stat-item loading">
+                    <h3 data-count="40">0</h3>
+                    <p>Yıllık Deneyim</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="1000">0</h3>
+                    <p>Tamamlanan Proje</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="500">0</h3>
+                    <p>Mutlu Müşteri</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="24">0</h3>
+                    <p>Saat Teknik Destek</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info loading">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>Organize Sanayi Bölgesi<br>İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p>+44 7847 795309</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-posta</h4>
+                            <p>info@bascold.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Çalışma Saatleri</h4>
+                            <p>Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form loading" style="display: none;">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ad Soyad</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesaj</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Mesaj Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BASCOLD SOĞUTMA</h3>
+                <p>40+ yıllık deneyimimizle soğutma ve ısıtma sektöründe güvenilir çözüm ortağınız.</p>
+                <div style="margin-top: 1rem;">
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Linkler</h3>
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#services">Hizmetler</a></li>
+                    <li><a href="#products">Ürünler</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hizmetlerimiz</h3>
+                <ul>
+                    <li><a href="#">Evaporatör Sistemleri</a></li>
+                    <li><a href="#">Kondenser Sistemleri</a></li>
+                    <li><a href="#">Teknik Servis</a></li>
+                    <li><a href="#">Proje Danışmanlığı</a></li>
+                    <li><a href="#">Endüstriyel Çözümler</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim Bilgileri</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Organize Sanayi Bölgesi, İstanbul</li>
+                    <li><i class="fas fa-phone"></i> +44 7847 795309</li>
+                    <li><i class="fas fa-envelope"></i> info@bascold.com</li>
+                    <li><i class="fas fa-globe"></i> www.bascold.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BASCOLD Soğutma. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+        <a href="tel:+447847795309" class="contact-btn phone-btn" title="Ara">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/447847795309" class="contact-btn whatsapp-btn" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Image Slider
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.nav-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Stats counter animation
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    
+                    // Animate stats counters
+                    if (entry.target.classList.contains('stat-item')) {
+                        const counter = entry.target.querySelector('h3');
+                        const targetCount = parseInt(counter.getAttribute('data-count'));
+                        animateValue(counter, 0, targetCount, 2000);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all loading elements
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form data collection
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple form validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Lütfen zorunlu alanları doldurun.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Lütfen geçerli bir e-posta adresi girin.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+            this.reset();
+        });
+
+        // Parallax effect for hero and stats sections
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Loading animation for page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Add initial loading state
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+
+        // Prevent right-click context menu (optional)
+        // document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.service-card, .product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect for hero text (optional)
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect (uncomment if desired)
+        // setTimeout(() => {
+        //     const heroTitle = document.querySelector('.hero h1');
+        //     typeWriter(heroTitle, 'Profesyonel Soğutma Çözümleri', 100);
+        // }, 1000);
+
+        // Add floating animation to CTA button
+        setInterval(() => {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.style.transform = 'translateY(-3px)';
+                setTimeout(() => {
+                    ctaButton.style.transform = 'translateY(0)';
+                }, 500);
+            }
+        }, 3000);
+
+        // Performance optimization: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add page transition effects
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // SEO and accessibility improvements
+        document.querySelectorAll('img').forEach(img => {
+            if (!img.alt) {
+                img.alt = 'BASCOLD Soğutma - Profesyonel Soğutma Sistemleri';
+            }
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Print styles (optional)
+        window.addEventListener('beforeprint', () => {
+            document.querySelector('.fixed-contact').style.display = 'none';
+            document.querySelector('.scroll-top').style.display = 'none';
+        });
+
+        window.addEventListener('afterprint', () => {
+            document.querySelector('.fixed-contact').style.display = 'flex';
+            document.querySelector('.scroll-top').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
