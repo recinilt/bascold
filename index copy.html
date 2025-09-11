@@ -337,55 +337,6 @@
             font-size: 0.9rem;
         }
 
-        /* Image Slider */
-        .image-slider {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slider-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background: white;
-        }
-
         /* Stats Section */
         .stats {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
@@ -577,46 +528,6 @@
             transform: scale(1.1);
         }
 
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 150px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: #1e40af;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 998;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background: #1d4ed8;
-            transform: translateY(-3px);
-        }
-
-        /* Loading animation */
-        .loading {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .loading.loaded {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
@@ -677,6 +588,103 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Image Slider */
+        .image-slider {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: white;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 150px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -701,7 +709,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero parallax" id="home">
         <div class="hero-content">
             <h1>Profesyonel Soğutma Çözümleri</h1>
             <p>40+ Yıllık Tecrübeyle Soğutma ve Isıtma Sektöründe Lider Çözümler</p>
@@ -860,7 +868,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="section stats" id="stats">
+    <section class="section stats parallax" id="stats">
         <div class="container">
             <h2>Rakamlarla BASCOLD</h2>
             <div class="stats-grid">
@@ -920,7 +928,29 @@
                     </div>
                 </div>
                 <div class="contact-form loading" style="display: none;">
-                    
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ad Soyad</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesaj</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Mesaj Gönder</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1142,14 +1172,15 @@
             this.reset();
         });
 
-        // Add some interactive hover effects
-        document.querySelectorAll('.service-card, .product-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
+        // Parallax effect for hero and stats sections
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
             });
         });
 
@@ -1161,6 +1192,52 @@
         // Add initial loading state
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.5s ease';
+
+        // Prevent right-click context menu (optional)
+        // document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.service-card, .product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect for hero text (optional)
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect (uncomment if desired)
+        // setTimeout(() => {
+        //     const heroTitle = document.querySelector('.hero h1');
+        //     typeWriter(heroTitle, 'Profesyonel Soğutma Çözümleri', 100);
+        // }, 1000);
+
+        // Add floating animation to CTA button
+        setInterval(() => {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.style.transform = 'translateY(-3px)';
+                setTimeout(() => {
+                    ctaButton.style.transform = 'translateY(0)';
+                }, 500);
+            }
+        }, 3000);
 
         // Performance optimization: Lazy load images
         if ('IntersectionObserver' in window) {
