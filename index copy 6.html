@@ -537,15 +537,6 @@
             transform: scale(1.1);
         }
 
-        .email-btn {
-            background: #3b82f6;
-        }
-
-        .email-btn:hover {
-            background: #2563eb;
-            transform: scale(1.1);
-        }
-
         /* Contact Modal */
         .contact-modal {
             display: none;
@@ -675,7 +666,7 @@
         /* Scroll to top button */
         .scroll-top {
             position: fixed;
-            bottom: 180px;
+            bottom: 150px;
             right: 20px;
             width: 50px;
             height: 50px;
@@ -770,10 +761,6 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
-            }
-
-            .scroll-top {
-                bottom: 150px;
             }
 
             .modal-content {
@@ -1043,9 +1030,6 @@
         <div class="contact-btn whatsapp-btn" title="WhatsApp" onclick="openContactModal('whatsapp')">
             <i class="fab fa-whatsapp"></i>
         </div>
-        <div class="contact-btn email-btn" title="E-posta Gönder" onclick="openContactModal('email')">
-            <i class="fas fa-envelope"></i>
-        </div>
     </div>
 
     <!-- Contact Modal -->
@@ -1202,14 +1186,6 @@
                 modalTitle.textContent = 'WhatsApp ile Mesaj Gönder';
                 turkeyOption.href = 'https://wa.me/905413067734';
                 ukOption.href = 'https://wa.me/447847795309';
-            } else if (type === 'email') {
-                modalTitle.textContent = 'E-posta Gönder';
-                turkeyOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20Merkez%20Ofis';
-                ukOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20İngiltere%20Şubesi';
-                
-                // E-posta için içeriği güncelle
-                document.querySelector('#turkeyOption .option-details').textContent = 'info@bascold.com';
-                document.querySelector('#ukOption .option-details').textContent = 'info@bascold.com';
             }
         }
 
@@ -1217,10 +1193,6 @@
             const modal = document.getElementById('contactModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-            
-            // Modal kapandığında telefon numaralarını geri yükle
-            document.querySelector('#turkeyOption .option-details').textContent = '+90 541 306 77 34';
-            document.querySelector('#ukOption .option-details').textContent = '+44 7847 795309';
         }
 
         // Close modal when clicking outside
