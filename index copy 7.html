@@ -6,9 +6,9 @@
     <title>BAS COLD SOĞUTMA - Profesyonel Soğutma Çözümleri</title>
     <meta name="description" content="Profesyonel soğutma sistemleri, evaporatör, kondenser ve soğutma ekipmanları konusunda uzman şirket.">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="logo3.jpg">
-    <link rel="shortcut icon" type="image/x-icon" href="logo3.jpg">
-    <link rel="apple-touch-icon" href="logo3.jpg">
+    <link rel="icon" type="image/x-icon" href="bascold-logo2.png">
+    <link rel="shortcut icon" type="image/x-icon" href="bascold-logo2.png">
+    <link rel="apple-touch-icon" href="bascold-logo2.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -299,8 +299,8 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .product-card {
@@ -317,113 +317,37 @@
         }
 
         .product-image {
-            height: 280px;
-            background: #f8fafc;
+            height: 200px;
+            background: #e2e8f0;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
         }
 
         .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .product-content {
-            padding: 2rem;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1e40af;
-            text-align: center;
-        }
-
-        .product-specs {
-            margin-top: 1rem;
-        }
-
-        .specs-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            padding: 0.8rem 0;
-            border-bottom: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: #374151;
-        }
-
-        .specs-header:hover {
-            color: #1e40af;
-        }
-
-        .specs-header i {
-            transition: transform 0.3s ease;
-            color: #1e40af;
-            font-size: 1.1rem;
-        }
-
-        .specs-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            background: #f9fafb;
-            border-radius: 0 0 10px 10px;
-            padding: 0 1.5rem;
-        }
-
-        .specs-content.active {
             padding: 1.5rem;
         }
 
-        .spec-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .spec-category:last-child {
-            margin-bottom: 0;
-        }
-
-        .spec-category h4 {
-            font-size: 1.1rem;
+        .product-content h3 {
+            font-size: 1.2rem;
             font-weight: 600;
+            margin-bottom: 0.5rem;
             color: #1e40af;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e5e7eb;
         }
 
-        .spec-category p {
+        .product-content p {
             color: #64748b;
-            line-height: 1.7;
-            font-size: 0.95rem;
-            text-align: justify;
-        }
-
-        .read-more {
-            color: #1e40af;
             font-size: 0.9rem;
-            cursor: pointer;
-            text-decoration: underline;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        .read-more:hover {
-            color: #1d4ed8;
         }
 
         /* Image Slider */
@@ -840,23 +764,6 @@
                 padding: 60px 3%;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .product-image {
-                height: 240px;
-            }
-
-            .product-content {
-                padding: 1.5rem;
-            }
-
-            .product-title {
-                font-size: 1.2rem;
-            }
-
             .fixed-contact {
                 bottom: 15px;
                 right: 15px;
@@ -896,46 +803,6 @@
                 height: 40px;
                 max-height: 45px;
             }
-
-            .specs-content.active {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .product-card {
-                margin: 0 10px;
-            }
-
-            .product-image {
-                height: 200px;
-                padding: 15px;
-            }
-
-            .product-content {
-                padding: 1rem;
-            }
-
-            .specs-content.active {
-                padding: 0.8rem;
-            }
-
-            .spec-category {
-                margin-bottom: 1rem;
-            }
-
-            .spec-category h4 {
-                font-size: 1rem;
-            }
-
-            .spec-category p {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -944,9 +811,10 @@
     <!-- Header -->
     <header class="header" id="header">
         <nav class="navbar">
-            <a href="#home" class="logo">
-                <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" class="logo-image">
-            </a>
+            
+             <a href="#home" class="logo">
+                <img src="bascold-logo.jpg" alt="BASCOLD SOĞUTMA" class="logo-image">
+            </a><br>
             <h1><a href="#home" class="logo">BAS COLD SOĞUTMA</a></h1>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Ana Sayfa</a></li>
@@ -1040,7 +908,6 @@
                     <h3>Kalite Garantisi</h3>
                     <p>CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -1126,7 +993,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>BAS COLD SOĞUTMA</h3>
-                <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" style="height: 80px; margin-bottom: 1rem;"><br>
+                <img src="bascold-logo.jpg" alt="BASCOLD SOĞUTMA" style="height: 80px; margin-bottom: 1rem;"><br>
                 <p>10+ yıllık deneyimimizle soğutma sektöründe etkili çözüm ortağınız.</p>
                 <div style="margin-top: 1rem;">
                     <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
@@ -1227,156 +1094,47 @@
     </button>
 
     <script>
-        // DİNAMİK SLIDER RESİMLERİ
+        // DİNAMİK SLIDER RESİMLERİ - Bu değişkene istediğiniz kadar resim ekleyebilirsiniz
         const sliderImages = [
-            'RK-G-Serisi-Kondenser.jpg',
-            'Ren-S-Box-Kabinli-Kondenser.jpg', 
-            'resim11.png'
+            'sliderresim1.png',
+            'sliderresim2.png', 
+            'sliderresim3.png'
+            
         ];
 
-        // DİNAMİK ÜRÜNLER - Yeni ürün formatı
+        // DİNAMİK ÜRÜNLER - Bu değişkene istediğiniz kadar ürün ekleyebilirsiniz
         const products = [
             {
-                image: 'RK-G-Serisi-Kondenser.jpg', // Kondenser resmi
-                title: 'RK-G Serisi Kondenser',
-                specs: {
-                    batarya: 'Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8", 5/16\'\' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.',
-                    kabin: 'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşı dayanımı olan galvaniz çelikten üretilmektedir. 8m² ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.',
-                    fan: 'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.',
-                    kapasite: 'Kapasiteler Avrupa fanlarına göre dT=15K şartında R404A gazı için EN 328 Standartları ile hesaplanmıştır.',
-                    test: 'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
-                }
-            },
-            {
-                image: 'RK-S-Serisi-Kondenser.jpg',
-                title: 'RK-S Serisi Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşıdayanımı olan galvaniz çelikten üretilmektedir. 8m2 ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.',
-                    Fan:'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.',
-                    Kapasite:'Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.',
-                    Test:'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
-                }
-            },
-            {
-                image: 'RK-Ozel-Seri-Kondenser.jpg',
-                title: 'RK Özel Seri Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşıdayanımı olan galvaniz çelikten üretilmektedir. 8m2 ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.",
-                    Fan:"RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'RH-Kabinli-Kondenser.png',
-                title: 'RH Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Ren-M-Box-Kabinli-Kondenser.jpg',
-                title: 'Ren M Box Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Ren-S-Box-Kabinli-Kondenser.jpg',
-                title: 'Ren S Box Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Ren-H-Box-Kabinli-Kondenser.jpg',
-                title: 'Ren H Box Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Soguk-Oda-Evaporatorleri.jpg',
+                image: 'resim6.png',
                 title: 'Soğuk Oda Evaporatörleri',
-                specs: {
-                    Batarya:"Bakır borulu RSC Serisi Ticari Oda Soğutucuları dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 1/2” boru çapında ve 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 6-8 mm ve kalıp geometrisi 40x34,64 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RSC Serisi Ticari Oda Soğutucularıın kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"RSC Serisi Ticari Oda Soğutucularında Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RSC Serisi Standart Oda Soğutucuları 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
+                description: 'Yüksek verimli, dayanıklı ve sessiz çalışma özellikli soğuk oda evaporatörleri'
             },
             {
-                image: 'Tavan-Tipi-Evaporatorler.jpg',
-                title: 'Tavan Tipi Evaporatörler',
-                specs: {
-                    Batarya:"Bakır borulu RYE Serileri Tavan Tipi Evaporatörler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 1/2” boru çapında ve 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 6-8 mm ve kalıp geometrisi 40x34,64 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RYE Serileri Tavan Tipi Evaporatörlerinin kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"RYE Serileri Tavan Tipi Evaporatörlerinde Ø300, Ø350 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RYE Serileri Tavan Tipi Evaporatörleri 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
+                image: 'resim7.png',
+                title: 'Hava Soğutmalı Kondenserler',
+                description: 'Enerji tasarruflu, kompakt tasarım hava soğutmalı kondenser sistemleri'
             },
             {
-                image: 'Plastik-Kabinli-Tavan-Tipi-Evaporatorler.jpg',
-                title: 'Plastik Kabinli Tavan Tipi Evaporatörler',
-                specs: {
-                    
-                    Batarya:"KARAMAN (TAVAN) TİPİ EVAPORATÖRLER'de; bakır borulu RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörleri dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8 inç ve 1/2 boru çapında, 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yuzeye sahip aluminyum lamel kullanılmaktadır. Lamel aralığı 4-5 mm ve kalıp geometrisi 40x34,64 mm, 25x21,65 olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RNK & RNKY Serileri Tavan Tipi Evaporatörlerinin kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir. Karaman soğutucularımız kırılmaz plastik enjeksiyon baskı ile üretilmiştir.",
-                    Fan:"RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörlerde Ø200, Ø250 mm. fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörlerleri 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-
-                }
+                image: 'resim8.png',
+                title: 'Endüstriyel Soğutma Grupları',
+                description: 'Büyük kapasiteli endüstriyel tesisler için özel tasarım soğutma grupları'
             },
             {
-                image: 'Vitrin-Sogutuculari.jpg',
-                title: 'Vitrin Soğutucuları',
-                specs: {
-                    
-                    Batarya:"Bakır borulu RKF Serisi Vitrin Soğutucuları dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8“ boru çapında ve 0,35 mm et kalınlığında ve şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 4 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RKF Serisi Vitrin Soğutucuları kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"RKF Serisi Vitrin Soğutucuları Ø12x12 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RKF Serisi Vitrin Soğutucuları 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-
-                }
+                image: 'resim9.png',
+                title: 'Kompakt Soğutma Üniteleri',
+                description: 'Küçük ve orta ölçekli işletmeler için pratik soğutma çözümleri'
+            },
+            {
+                image: 'resim10.png',
+                title: 'Özel Tasarım Sistemler',
+                description: 'Müşteri ihtiyaçlarına göre tasarlanan özel soğutma ve ısıtma sistemleri'
             },
             {
                 image: 'resim11.png',
                 title: 'Yedek Parça ve Aksesuar',
-                specs: {
-                    parca: 'Orijinal yedek parçalar, filtreler ve sistem aksesuarları. Tüm marka ve modeller için uyumlu parça tedariki sağlanır.',
-                    stok: 'Geniş stok kapasitesi ile hızlı teslimat.',
-                    kalite: 'Orijinal ekipman üreticisi (OEM) kalitesinde parçalar, uluslararası standartlara uygun sertifikalı ürünlerdir.',
-                    hizmet: 'Teknik danışmanlık, parça seçimi, montaj kılavuzu ve satış sonrası destek hizmetleri kapsamlıdır.'
-                }
+                description: 'Orijinal yedek parçalar, filtreler ve sistem aksesuarları'
             }
         ];
-
-        let currentOpenSpec = null;
 
         // Slider oluşturma fonksiyonu
         function createSlider() {
@@ -1410,74 +1168,14 @@
                             <img src="${product.image}" alt="${product.title}">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">${product.title}</h3>
-                            <div class="product-specs">
-                                <div class="specs-header" onclick="toggleSpecs(${index})">
-                                    <span>Teknik Özellikler</span>
-                                    <i class="fas fa-chevron-down" id="icon-${index}"></i>
-                                </div>
-                                <div class="specs-content" id="specs-${index}">
-                                    ${generateSpecsHTML(product.specs)}
-                                </div>
-                            </div>
+                            <h3>${product.title}</h3>
+                            <p>${product.description}</p>
                         </div>
                     </div>
                 `;
             });
 
             productsContainer.innerHTML = productsHTML;
-        }
-
-        // Teknik özellikler HTML'i oluşturma
-        function generateSpecsHTML(specs) {
-            let html = '';
-            Object.keys(specs).forEach(key => {
-                const title = key.charAt(0).toUpperCase() + key.slice(1);
-                html += `
-                    <div class="spec-category">
-                        <h4>${title.replace(/([A-Z])/g, ' $1').trim()}</h4>
-                        <p>${specs[key]}</p>
-                    </div>
-                `;
-            });
-            return html;
-        }
-
-        // Teknik özellikler toggle fonksiyonu - GÜNCEL VERSİYON
-        function toggleSpecs(index) {
-            const specsContent = document.getElementById(`specs-${index}`);
-            const icon = document.getElementById(`icon-${index}`);
-            
-            // Eğer başka bir spec açıksa kapat
-            if (currentOpenSpec !== null && currentOpenSpec !== index) {
-                const prevSpecs = document.getElementById(`specs-${currentOpenSpec}`);
-                const prevIcon = document.getElementById(`icon-${currentOpenSpec}`);
-                prevSpecs.classList.remove('active');
-                prevSpecs.style.maxHeight = '0px';
-                prevIcon.style.transform = 'rotate(0deg)';
-            }
-            
-            // Mevcut spec'i toggle et
-            if (specsContent.classList.contains('active')) {
-                specsContent.classList.remove('active');
-                specsContent.style.maxHeight = '0px';
-                icon.style.transform = 'rotate(0deg)';
-                currentOpenSpec = null;
-            } else {
-                // Önce active class'ı ekle (padding'i aktive et)
-                specsContent.classList.add('active');
-                
-                // Bir sonraki frame'de height hesapla (padding uygulandıktan sonra)
-                requestAnimationFrame(() => {
-                    const fullHeight = specsContent.scrollHeight;
-                    const extraPadding = 40; // Ekstra güvenlik payı
-                    const finalHeight = fullHeight + extraPadding; // 2 satır kadar ekstra alan
-                    specsContent.style.maxHeight = finalHeight + 'px';
-                });
-                
-                icon.style.transform = 'rotate(180deg)';
-                currentOpenSpec = index;
-            }
         }
 
         // Sayfa yüklendiğinde slider ve ürünleri oluştur
@@ -1512,6 +1210,7 @@
                 turkeyOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20Merkez%20Ofis';
                 ukOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20İngiltere%20Şubesi';
                 
+                // E-posta için içeriği güncelle
                 document.querySelector('#turkeyOption .option-details').textContent = 'info@bascold.com';
                 document.querySelector('#ukOption .option-details').textContent = 'info@bascold.com';
             }
@@ -1522,6 +1221,7 @@
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
             
+            // Modal kapandığında telefon numaralarını geri yükle
             document.querySelector('#turkeyOption .option-details').textContent = '+90 541 306 77 34';
             document.querySelector('#ukOption .option-details').textContent = '+44 7847 795309';
         }
@@ -1631,6 +1331,7 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('loaded');
                         
+                        // Animate stats counters
                         if (entry.target.classList.contains('stat-item')) {
                             const counter = entry.target.querySelector('h3');
                             const targetCount = parseInt(counter.getAttribute('data-count'));
@@ -1640,6 +1341,7 @@
                 });
             }, observerOptions);
 
+            // Observe all loading elements
             document.querySelectorAll('.loading').forEach(el => {
                 observer.observe(el);
             });
@@ -1663,15 +1365,34 @@
             });
         });
 
+        // Add interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bu efektler dinamik olarak oluşturulan elementler için çalışacak
+            document.addEventListener('mouseenter', function(e) {
+                if (e.target.closest('.service-card, .product-card')) {
+                    const card = e.target.closest('.service-card, .product-card');
+                    card.style.transform = 'translateY(-10px) scale(1.02)';
+                }
+            }, true);
+            
+            document.addEventListener('mouseleave', function(e) {
+                if (e.target.closest('.service-card, .product-card')) {
+                    const card = e.target.closest('.service-card, .product-card');
+                    card.style.transform = 'translateY(0) scale(1)';
+                }
+            }, true);
+        });
+
         // Loading animation for page
         window.addEventListener('load', () => {
             document.body.style.opacity = '1';
         });
 
+        // Add initial loading state
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.5s ease';
 
-        // Keyboard navigation support
+        // Add keyboard navigation support
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 hamburger.classList.remove('active');
