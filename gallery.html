@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASCOLD SOĞUTMA - Ürün Galerisi</title>
+    <meta name="description" content="BASCOLD Soğutma ürün galerisi - Tüm ürünlerimizi detaylı olarak görüntüleyin.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo3.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="logo3.jpg">
+    <link rel="apple-touch-icon" href="logo3.jpg">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            margin-right: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: #1e40af;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .back-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .language-toggle {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1e40af;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: #1d4ed8;
+        }
+
+        .language-options {
+            display: none;
+            flex-direction: column;
+        }
+
+        .language-options.active {
+            display: flex;
+        }
+
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .language-option:hover {
+            background: #f3f4f6;
+            color: #1e40af;
+        }
+
+        .language-option.active {
+            background: #eff6ff;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flag-tr { background: #e30a17; color: white; }
+        .flag-en { background: #012169; color: white; }
+        .flag-ar { background: #006233; color: white; }
+
+        /* RTL Support */
+        body[dir="rtl"] {
+            direction: rtl;
+        }
+
+        body[dir="rtl"] .language-selector {
+            right: auto;
+            left: 20px;
+        }
+
+        body[dir="rtl"] .logo-image {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal/Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #9ca3af;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 3%;
+            }
+
+            .main-content {
+                padding: 2rem 3%;
+                margin-top: 90px;
+            }
+
+            .gallery-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+
+            .language-selector {
+                top: 100px;
+                right: 10px;
+            }
+
+            .lightbox-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev {
+                left: 15px;
+            }
+
+            .lightbox-next {
+                right: 15px;
+            }
+
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            body[dir="rtl"] .language-selector {
+                right: auto;
+                left: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 1.5rem 2%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .gallery-item img {
+                height: 180px;
+            }
+
+            .gallery-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 2%;
+            }
+
+            .main-content {
+                margin-top: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector" id="languageSelector">
+        <div class="language-toggle" onclick="toggleLanguageOptions()">
+            <span class="flag-icon flag-en" id="currentFlag">EN</span>
+            <span id="currentLang">English</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="language-options" id="languageOptions">
+            <div class="language-option" onclick="changeLanguage('tr')">
+                <span class="flag-icon flag-tr">TR</span>
+                <span>Türkçe</span>
+            </div>
+            <div class="language-option active" onclick="changeLanguage('en')">
+                <span class="flag-icon flag-en">EN</span>
+                <span>English</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('ar')">
+                <span class="flag-icon flag-ar">ع</span>
+                <span>العربية</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" class="logo-image">
+                <span data-translate="companyName">BASCOLD COOLING</span>
+            </a>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span data-translate="backButton">Back to Homepage</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="gallery-header">
+            <h1 data-translate="galleryTitle">Product Gallery</h1>
+            <p data-translate="galleryDescription">Explore our complete range of cooling system products with detailed high-resolution images.</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Galeri öğeleri JavaScript ile oluşturulacak -->
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" onclick="prevImage()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="Product Image">
+            <div class="lightbox-counter" id="lightboxCounter">1 / 53</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p data-translate="copyright">&copy; 2024 BASCOLD Cooling. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ÜRÜN RESİMLERİ DİZİSİ
+        const galleryImages = [];
+        for (let i = 1; i <= 56; i++) {
+            galleryImages.push(`urunresimleri${i}.jpg`);
+        }
+
+        // DİL ÇEVİRİLERİ
+        const translations = {
+            tr: {
+                companyName: "BASCOLD SOĞUTMA",
+                backButton: "Ana Sayfaya Dön",
+                galleryTitle: "Ürün Galerisi",
+                galleryDescription: "Soğutma sistemi ürünlerimizin tamamını yüksek çözünürlüklü detaylı görsellerle keşfedin.",
+                copyright: "© 2024 BASCOLD Soğutma. Tüm hakları saklıdır."
+            },
+            en: {
+                companyName: "BASCOLD COOLING",
+                backButton: "Back to Homepage",
+                galleryTitle: "Product Gallery",
+                galleryDescription: "Explore our complete range of cooling system products with detailed high-resolution images.",
+                copyright: "© 2024 BASCOLD Cooling. All rights reserved."
+            },
+            ar: {
+                companyName: "باس كولد للتبريد",
+                backButton: "العودة للرئيسية",
+                galleryTitle: "معرض المنتجات",
+                galleryDescription: "اكتشف مجموعتنا الكاملة من منتجات أنظمة التبريد بصور مفصلة عالية الدقة.",
+                copyright: "© 2024 باس كولد للتبريد. جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLanguage = 'en';
+        let currentImageIndex = 0;
+
+        // DİL YÖNETİMİ
+        function initializeLanguage() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            currentLanguage = savedLanguage;
+            updateLanguageSelector();
+            translatePage();
+            updateDirection();
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            updateLanguageSelector();
+            translatePage();
+            updateDirection();
+            
+            // Dil seçicisini kapat
+            document.getElementById('languageOptions').classList.remove('active');
+        }
+
+        function updateLanguageSelector() {
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            const options = document.querySelectorAll('.language-option');
+            
+            // Mevcut dili güncelle
+            switch(currentLanguage) {
+                case 'tr':
+                    currentFlag.className = 'flag-icon flag-tr';
+                    currentFlag.textContent = 'TR';
+                    currentLang.textContent = 'Türkçe';
+                    break;
+                case 'en':
+                    currentFlag.className = 'flag-icon flag-en';
+                    currentFlag.textContent = 'EN';
+                    currentLang.textContent = 'English';
+                    break;
+                case 'ar':
+                    currentFlag.className = 'flag-icon flag-ar';
+                    currentFlag.textContent = 'ع';
+                    currentLang.textContent = 'العربية';
+                    break;
+            }
+            
+            // Seçeneklerdeki aktif durumu güncelle
+            options.forEach(option => {
+                option.classList.remove('active');
+                if (option.onclick.toString().includes(`'${currentLanguage}'`)) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function updateDirection() {
+            if (currentLanguage === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+
+        function translatePage() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+
+            // Sayfa başlığını güncelle
+            const titles = {
+                tr: 'BASCOLD SOĞUTMA - Ürün Galerisi',
+                en: 'BASCOLD COOLING - Product Gallery',
+                ar: 'باس كولد للتبريد - معرض المنتجات'
+            };
+            document.title = titles[currentLanguage];
+        }
+
+        function toggleLanguageOptions() {
+            const options = document.getElementById('languageOptions');
+            options.classList.toggle('active');
+        }
+
+        // GALERİ OLUŞTURMA
+        function createGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            let galleryHTML = '';
+
+            galleryImages.forEach((image, index) => {
+                galleryHTML += `
+                    <div class="gallery-item loading" onclick="openLightbox(${index})" style="animation-delay: ${index * 0.05}s">
+                        <img src="${image}" alt="Product Image ${index + 1}" loading="lazy">
+                    </div>
+                `;
+            });
+
+            galleryGrid.innerHTML = galleryHTML;
+        }
+
+        // LIGHTBOX FONKSİYONLARI
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = galleryImages[index];
+            lightboxCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = galleryImages[currentImageIndex];
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = galleryImages[currentImageIndex];
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // KLAVYE NAVİGASYONU
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                }
+            }
+            
+            // Dil seçicisini kapat
+            if (e.key === 'Escape') {
+                document.getElementById('languageOptions').classList.remove('active');
+            }
+        });
+
+        // LIGHTBOX DIŞINDA TIKLAMA
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // DİL SEÇİCİSİ DIŞINDA TIKLAMA
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.getElementById('languageSelector');
+            if (!languageSelector.contains(event.target)) {
+                document.getElementById('languageOptions').classList.remove('active');
+            }
+        });
+
+        // TOUCH/SWIPE DESTEĞİ (MOBİL)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.getElementById('lightbox').addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextImage(); // Sola kaydır = sonraki resim
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevImage(); // Sağa kaydır = önceki resim
+            }
+        }
+
+        // SAYFA YÜKLENDİĞİNDE
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+            createGallery();
+        });
+
+        // LOADING ANİMASYONU
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+</body>
+</html>

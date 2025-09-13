@@ -577,50 +577,6 @@
             color: #1d4ed8;
         }
 
-        /* Gallery Card Styles */
-        .gallery-card {
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(30, 64, 175, 0.2);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(30, 64, 175, 0.9);
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-card:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-link {
-            background: linear-gradient(135deg, #1e40af, #3b82f6) !important;
-            color: white !important;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        .gallery-link:hover {
-            background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
-        }
-
         /* Image Slider */
         .image-slider {
             position: relative;
@@ -1649,8 +1605,6 @@
                 // Products Section
                 productsTitle: "Ürünlerimiz",
                 techSpecs: "Teknik Özellikler",
-                galleryTitle: "Ürün Galerisi",
-                galleryDesc: "Tüm ürünlerimizi görmek için tıklayınız",
                 
                 // Stats Section
                 statsTitle: "Rakamlarla BASCOLD",
@@ -1736,8 +1690,6 @@
                 // Products Section
                 productsTitle: "Our Products",
                 techSpecs: "Technical Specifications",
-                galleryTitle: "Product Gallery",
-                galleryDesc: "Click to view all our products",
                 
                 // Stats Section
                 statsTitle: "BASCOLD in Numbers",
@@ -1823,8 +1775,6 @@
                 // Products Section
                 productsTitle: "منتجاتنا",
                 techSpecs: "المواصفات التقنية",
-                galleryTitle: "معرض المنتجات",
-                galleryDesc: "انقر لمشاهدة جميع منتجاتنا",
                 
                 // Stats Section
                 statsTitle: "باس كولد بالأرقام",
@@ -1992,13 +1942,6 @@
                             kalite: 'OEM kalitesinde parçalar, uluslararası standartlara uygun.',
                             hizmet: 'Teknik danışmanlık ve satış sonrası destek hizmetleri.'
                         }
-                    },
-                    {
-                        title: 'Ürün Galerisi',
-                        isGallery: true,
-                        specs: {
-                            aciklama: 'Tüm ürünlerimizi ve detaylarını görmek için buraya tıklayın.'
-                        }
                     }
                 ]
             },
@@ -2124,13 +2067,6 @@
                             stock: 'Fast delivery with wide stock capacity.',
                             quality: 'OEM quality parts, compliant with international standards.',
                             service: 'Technical consultancy and after-sales support services.'
-                        }
-                    },
-                    {
-                        title: 'Product Gallery',
-                        isGallery: true,
-                        specs: {
-                            description: 'Click here to view all our products and details.'
                         }
                     }
                 ]
@@ -2258,13 +2194,6 @@
                             جودة: 'قطع بجودة OEM، متوافقة مع المعايير الدولية.',
                             خدمة: 'خدمات الاستشارة التقنية ودعم ما بعد البيع.'
                         }
-                    },
-                    {
-                        title: 'معرض المنتجات',
-                        isGallery: true,
-                        specs: {
-                            وصف: 'انقر هنا لمشاهدة جميع منتجاتنا والتفاصيل.'
-                        }
                     }
                 ]
             }
@@ -2278,18 +2207,13 @@
         ];
 
         let currentOpenSpec = null;
-        let currentLanguage = 'en'; // Varsayılan dil
+        let currentLanguage = 'tr'; // Varsayılan dil
 
-        
         // DİL YÖNETİMİ
         function initializeLanguage() {
             const savedLanguage = localStorage.getItem('selectedLanguage');
             if (savedLanguage) {
                 currentLanguage = savedLanguage;
-            } else {
-                // Local storage'da dil bilgisi yoksa varsayılan olarak İngilizce yap
-                currentLanguage = 'en';
-                localStorage.setItem('selectedLanguage', 'en');
             }
             updateLanguageSelector();
             translatePage();
@@ -2435,43 +2359,12 @@
                 'Tavan-Tipi-Evaporatorler.jpg',
                 'Plastik-Kabinli-Tavan-Tipi-Evaporatorler.jpg',
                 'Vitrin-Sogutuculari.jpg',
-                'resim11.png',
-                'logo3.jpg'
+                'resim11.png'
             ];
             
             let productsHTML = '';
 
             currentProducts.forEach((product, index) => {
-                // Galeri kartı için özel kontrol
-                if (product.isGallery) {
-                    const galleryLabel = currentLanguage === 'ar' ? 'انقر لعرض المعرض' : 
-                                        currentLanguage === 'en' ? 'Click for Gallery' : 
-                                        'Galeri İçin Tıklayınız';
-                    
-                    productsHTML += `
-                        <div class="product-card loading gallery-card" onclick="openGallery()">
-                            <div class="product-image">
-                                <img src="logo3.jpg" alt="${product.title}">
-                                <div class="gallery-overlay">
-                                    <i class="fas fa-images"></i>
-                                    <span>Gallery</span>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="product-title">${product.title}</h3>
-                                <div class="product-specs">
-                                    <div class="specs-header gallery-link">
-                                        <span>${galleryLabel}</span>
-                                        <i class="fas fa-external-link-alt" id="icon-${index}"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                // Normal ürünler için
                 const specsLabel = currentLanguage === 'ar' ? 'المواصفات التقنية' : 
                                 currentLanguage === 'en' ? 'Technical Specifications' : 
                                 'Teknik Özellikler';
@@ -2552,15 +2445,6 @@
                 icon.style.transform = 'rotate(180deg)';
                 currentOpenSpec = index;
             }
-        }
-
-        // Galeri açma fonksiyonu
-        function openGallery() {
-            // Yeni pencerede galeri sayfasını aç
-            window.open('gallery.html', '_blank');
-            
-            // Veya aynı pencerede açmak için:
-            // window.location.href = 'gallery.html';
         }
 
         // Contact Modal Functions
