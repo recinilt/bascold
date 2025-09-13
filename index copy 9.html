@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAS COLD SOĞUTMA - Profesyonel Soğutma Çözümleri</title>
+    <meta name="description" content="Profesyonel soğutma sistemleri, evaporatör, kondenser ve soğutma ekipmanları konusunda uzman şirket.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo3.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="logo3.jpg">
+    <link rel="apple-touch-icon" href="logo3.jpg">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header - Sabit Üst Kısım */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            max-height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #1e40af;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #1e40af;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('resim1.png') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+
+        .service-card p {
+            color: #64748b;
+        }
+
+        /* Products Section */
+        .products {
+            background: #f8fafc;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 280px;
+            background: #f8fafc;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e40af;
+            text-align: center;
+        }
+
+        .product-specs {
+            margin-top: 1rem;
+        }
+
+        .specs-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 0.8rem 0;
+            border-bottom: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .specs-header:hover {
+            color: #1e40af;
+        }
+
+        .specs-header i {
+            transition: transform 0.3s ease;
+            color: #1e40af;
+            font-size: 1.1rem;
+        }
+
+        .specs-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: #f9fafb;
+            border-radius: 0 0 10px 10px;
+            padding: 0 1.5rem;
+        }
+
+        .specs-content.active {
+            padding: 1.5rem;
+        }
+
+        .spec-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .spec-category h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .spec-category p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .read-more {
+            color: #1e40af;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .read-more:hover {
+            color: #1d4ed8;
+        }
+
+        /* Image Slider */
+        .image-slider {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: white;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #1e40af;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Fixed Contact Buttons */
+        .fixed-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .phone-btn {
+            background: #10b981;
+        }
+
+        .phone-btn:hover {
+            background: #059669;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: scale(1.1);
+        }
+
+        .email-btn {
+            background: #3b82f6;
+        }
+
+        .email-btn:hover {
+            background: #2563eb;
+            transform: scale(1.1);
+        }
+
+        /* Contact Modal */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h3 {
+            color: #1e40af;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .contact-option {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .contact-option:hover {
+            border-color: #1e40af;
+            background: #eff6ff;
+            transform: translateY(-2px);
+        }
+
+        .contact-option:last-child {
+            margin-bottom: 2rem;
+        }
+
+        .option-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .turkey-icon {
+            background: #dc2626;
+        }
+
+        .uk-icon {
+            background: #1e40af;
+        }
+
+        .option-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin: 0;
+        }
+
+        .option-info p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .option-details {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-left: 56px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #374151;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 240px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .navbar {
+                padding: 1rem 3%;
+            }
+
+            .section {
+                padding: 60px 3%;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-image {
+                height: 240px;
+            }
+
+            .product-content {
+                padding: 1.5rem;
+            }
+
+            .product-title {
+                font-size: 1.2rem;
+            }
+
+            .fixed-contact {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .contact-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .scroll-top {
+                bottom: 180px;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 350px;
+            }
+
+            .option-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .option-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .option-details {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .logo-image {
+                height: 40px;
+                max-height: 45px;
+            }
+
+            .specs-content.active {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .product-card {
+                margin: 0 10px;
+            }
+
+            .product-image {
+                height: 200px;
+                padding: 15px;
+            }
+
+            .product-content {
+                padding: 1rem;
+            }
+
+            .specs-content.active {
+                padding: 0.8rem;
+            }
+
+            .spec-category {
+                margin-bottom: 1rem;
+            }
+
+            .spec-category h4 {
+                font-size: 1rem;
+            }
+
+            .spec-category p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" class="logo-image">
+            </a>
+            <h1><a href="#home" class="logo">BAS COLD SOĞUTMA</a></h1>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#about">Hakkımızda</a></li>
+                <li><a href="#services">Hizmetler</a></li>
+                <li><a href="#products">Ürünler</a></li>
+                <li><a href="#contact">İletişim</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Profesyonel Soğutma Çözümleri</h1>
+            <h3>BAS COLD ENDÜSTRİYEL SOĞUTMA SİSTEMLERİ İTHALAT İHRACAT LTD. ŞTİ.</h3>
+            <p>10+ Yıllık Tecrübeyle Soğutma Sektöründe Etkili Çözümler</p>
+            <a href="#contact" class="cta-button">İletişime Geç</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text loading">
+                    <p>BAS COLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir ve enerji verimli soğutma sistemleri sağlamaktayız.</p>
+
+                    <p>Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun ömürlü kullanım için tasarlanmaktadır.</p>
+
+                    <p>Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BAS COLD olarak, ürünlerinizin daha hızlı soğutulmasını ve daha uzun süre korunmasını sağlamak için yanınızdayız.</p>
+                    
+                </div>
+                <div class="about-image loading">
+                    <img src="resim2.png" alt="Fabrika Görünümü">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2>Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Evaporatör Sistemleri</h3>
+                    <p>Soğuk oda evaporatörleri, endüstriyel evaporatörler ve özel tasarım soğutma çözümleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Kondenser Sistemleri</h3>
+                    <p>Hava soğutmalı, su soğutmalı ve evaporatif kondenser sistemleri ile ısı atım çözümleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Soğuk oda sandviç Panel</h3>
+                    <p>Yüksek yalıtım performansı, hijyenik yüzey ve kolay montaj özellikli soğuk oda panelleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Proje Danışmanlığı</h3>
+                    <p>Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Endüstriyel Çözümler</h3>
+                    <p>Gıda sanayii, kimya, ilaç ve diğer endüstri kolları için özel soğutma sistemleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Kalite Garantisi</h3>
+                    <p>CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <h2>Ürünlerimiz</h2>
+            
+            <!-- Image Slider -->
+            <div class="image-slider" id="imageSlider">
+                <!-- Slider resimler otomatik oluşturulacak -->
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Ürünler otomatik oluşturulacak -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats" id="stats">
+        <div class="container">
+            <h2>Rakamlarla BAS COLD</h2>
+            <div class="stats-grid">
+                <div class="stat-item loading">
+                    <h3 data-count="10">0</h3>
+                    <p>Yıllık Deneyim</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="1001">0</h3>
+                    <p>Tamamlanan Proje</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="1001">0</h3>
+                    <p>Mutlu Müşteri</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info loading">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Merkez Ofis</h4>
+                            <p>Organize Sanayi Bölgesi<br>İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p>Merkez: +90 541 306 77 34<br>İngiltere: +44 7847 795309</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-posta</h4>
+                            <p>info@bascold.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Çalışma Saatleri</h4>
+                            <p>Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BAS COLD SOĞUTMA</h3>
+                <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" style="height: 80px; margin-bottom: 1rem;"><br>
+                <p>10+ yıllık deneyimimizle soğutma sektöründe etkili çözüm ortağınız.</p>
+                <div style="margin-top: 1rem;">
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #1e40af; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Linkler</h3>
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#services">Hizmetler</a></li>
+                    <li><a href="#products">Ürünler</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hizmetlerimiz</h3>
+                <ul>
+                    <li><a href="#">Evaporatör Sistemleri</a></li>
+                    <li><a href="#">Kondenser Sistemleri</a></li>
+                    <li><a href="#">Proje Danışmanlığı</a></li>
+                    <li><a href="#">Endüstriyel Çözümler</a></li>
+                    <li><a href="#">Kalite Garantisi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim Bilgileri</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Organize Sanayi Bölgesi, İstanbul</li>
+                    <li><i class="fas fa-phone"></i> +90 541 306 77 34</li>
+                    <li><i class="fas fa-phone"></i> +44 7847 795309</li>
+                    <li><i class="fas fa-envelope"></i> info@bascold.com</li>
+                    <li><i class="fas fa-globe"></i> www.bascold.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BAS COLD Soğutma. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+        <div class="contact-btn phone-btn" title="Ara" onclick="openContactModal('phone')">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-btn whatsapp-btn" title="WhatsApp" onclick="openContactModal('whatsapp')">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="contact-btn email-btn" title="E-posta Gönder" onclick="openContactModal('email')">
+            <i class="fas fa-envelope"></i>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeContactModal()">&times;</button>
+            <div class="modal-header">
+                <h3 id="modalTitle">İletişim Seçin</h3>
+                <p>Hangi ofisimizle iletişime geçmek istiyorsunuz?</p>
+            </div>
+            
+            <a href="#" class="contact-option modal-link" id="turkeyOption">
+                <div class="option-header">
+                    <div class="option-icon turkey-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4>Merkez Ofis</h4>
+                        <p>Mehtap GENİŞ</p>
+                    </div>
+                </div>
+                <div class="option-details">+90 541 306 77 34</div>
+            </a>
+
+            <a href="#" class="contact-option modal-link" id="ukOption">
+                <div class="option-header">
+                    <div class="option-icon uk-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4>İngiltere Şubesi</h4>
+                        <p>Serap Deniz BAŞ</p>
+                    </div>
+                </div>
+                <div class="option-details">+44 7847 795309</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // DİNAMİK SLIDER RESİMLERİ
+        const sliderImages = [
+            'RK-G-Serisi-Kondenser.jpg',
+            'Ren-S-Box-Kabinli-Kondenser.jpg', 
+            'resim11.png'
+        ];
+
+        // DİNAMİK ÜRÜNLER - Yeni ürün formatı
+        const products = [
+            {
+                image: 'RK-G-Serisi-Kondenser.jpg', // Kondenser resmi
+                title: 'RK-G Serisi Kondenser',
+                specs: {
+                    batarya: 'Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8", 5/16\'\' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.',
+                    kabin: 'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşı dayanımı olan galvaniz çelikten üretilmektedir. 8m² ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.',
+                    fan: 'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.',
+                    kapasite: 'Kapasiteler Avrupa fanlarına göre dT=15K şartında R404A gazı için EN 328 Standartları ile hesaplanmıştır.',
+                    test: 'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
+                }
+            },
+            {
+                image: 'RK-S-Serisi-Kondenser.jpg',
+                title: 'RK-S Serisi Kondenser',
+                specs: {
+                    Batarya:"Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
+                    Kabin:'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşıdayanımı olan galvaniz çelikten üretilmektedir. 8m2 ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.',
+                    Fan:'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.',
+                    Kapasite:'Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.',
+                    Test:'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
+                }
+            },
+            {
+                image: 'RK-Ozel-Seri-Kondenser.jpg',
+                title: 'RK Özel Seri Kondenser',
+                specs: {
+                    Batarya:"Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
+                    Kabin:"RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşıdayanımı olan galvaniz çelikten üretilmektedir. 8m2 ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.",
+                    Fan:"RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'RH-Kabinli-Kondenser.png',
+                title: 'RH Kabinli Kondenser',
+                specs: {
+                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
+                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'Ren-M-Box-Kabinli-Kondenser.jpg',
+                title: 'Ren M Box Kabinli Kondenser',
+                specs: {
+                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
+                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'Ren-S-Box-Kabinli-Kondenser.jpg',
+                title: 'Ren S Box Kabinli Kondenser',
+                specs: {
+                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
+                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'Ren-H-Box-Kabinli-Kondenser.jpg',
+                title: 'Ren H Box Kabinli Kondenser',
+                specs: {
+                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
+                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'Soguk-Oda-Evaporatorleri.jpg',
+                title: 'Soğuk Oda Evaporatörleri',
+                specs: {
+                    Batarya:"Bakır borulu RSC Serisi Ticari Oda Soğutucuları dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 1/2” boru çapında ve 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 6-8 mm ve kalıp geometrisi 40x34,64 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
+                    Kabin:"RSC Serisi Ticari Oda Soğutucularıın kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"RSC Serisi Ticari Oda Soğutucularında Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
+                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"RSC Serisi Standart Oda Soğutucuları 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'Tavan-Tipi-Evaporatorler.jpg',
+                title: 'Tavan Tipi Evaporatörler',
+                specs: {
+                    Batarya:"Bakır borulu RYE Serileri Tavan Tipi Evaporatörler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 1/2” boru çapında ve 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 6-8 mm ve kalıp geometrisi 40x34,64 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
+                    Kabin:"RYE Serileri Tavan Tipi Evaporatörlerinin kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"RYE Serileri Tavan Tipi Evaporatörlerinde Ø300, Ø350 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
+                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"RYE Serileri Tavan Tipi Evaporatörleri 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+                }
+            },
+            {
+                image: 'Plastik-Kabinli-Tavan-Tipi-Evaporatorler.jpg',
+                title: 'Plastik Kabinli Tavan Tipi Evaporatörler',
+                specs: {
+                    
+                    Batarya:"KARAMAN (TAVAN) TİPİ EVAPORATÖRLER'de; bakır borulu RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörleri dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8 inç ve 1/2 boru çapında, 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yuzeye sahip aluminyum lamel kullanılmaktadır. Lamel aralığı 4-5 mm ve kalıp geometrisi 40x34,64 mm, 25x21,65 olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
+                    Kabin:"RNK & RNKY Serileri Tavan Tipi Evaporatörlerinin kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir. Karaman soğutucularımız kırılmaz plastik enjeksiyon baskı ile üretilmiştir.",
+                    Fan:"RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörlerde Ø200, Ø250 mm. fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörlerleri 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+
+                }
+            },
+            {
+                image: 'Vitrin-Sogutuculari.jpg',
+                title: 'Vitrin Soğutucuları',
+                specs: {
+                    
+                    Batarya:"Bakır borulu RKF Serisi Vitrin Soğutucuları dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8“ boru çapında ve 0,35 mm et kalınlığında ve şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 4 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
+                    Kabin:"RKF Serisi Vitrin Soğutucuları kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
+                    Fan:"RKF Serisi Vitrin Soğutucuları Ø12x12 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
+                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
+                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
+                    Test:"RKF Serisi Vitrin Soğutucuları 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
+
+                }
+            },
+            {
+                image: 'resim11.png',
+                title: 'Yedek Parça ve Aksesuar',
+                specs: {
+                    parca: 'Orijinal yedek parçalar, filtreler ve sistem aksesuarları. Tüm marka ve modeller için uyumlu parça tedariki sağlanır.',
+                    stok: 'Geniş stok kapasitesi ile hızlı teslimat.',
+                    kalite: 'Orijinal ekipman üreticisi (OEM) kalitesinde parçalar, uluslararası standartlara uygun sertifikalı ürünlerdir.',
+                    hizmet: 'Teknik danışmanlık, parça seçimi, montaj kılavuzu ve satış sonrası destek hizmetleri kapsamlıdır.'
+                }
+            }
+        ];
+
+        let currentOpenSpec = null;
+
+        // Slider oluşturma fonksiyonu
+        function createSlider() {
+            const sliderContainer = document.getElementById('imageSlider');
+            let sliderHTML = '';
+            let navHTML = '<div class="slider-nav">';
+
+            sliderImages.forEach((image, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                sliderHTML += `
+                    <div class="slide ${activeClass}">
+                        <img src="${image}" alt="Slider Image ${index + 1}">
+                    </div>
+                `;
+                navHTML += `<span class="nav-dot ${activeClass}" onclick="currentSlide(${index + 1})"></span>`;
+            });
+
+            navHTML += '</div>';
+            sliderContainer.innerHTML = sliderHTML + navHTML;
+        }
+
+        // Ürünler oluşturma fonksiyonu
+        function createProducts() {
+            const productsContainer = document.getElementById('productsGrid');
+            let productsHTML = '';
+
+            products.forEach((product, index) => {
+                productsHTML += `
+                    <div class="product-card loading">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.title}">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">${product.title}</h3>
+                            <div class="product-specs">
+                                <div class="specs-header" onclick="toggleSpecs(${index})">
+                                    <span>Teknik Özellikler</span>
+                                    <i class="fas fa-chevron-down" id="icon-${index}"></i>
+                                </div>
+                                <div class="specs-content" id="specs-${index}">
+                                    ${generateSpecsHTML(product.specs)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            productsContainer.innerHTML = productsHTML;
+        }
+
+        // Teknik özellikler HTML'i oluşturma
+        function generateSpecsHTML(specs) {
+            let html = '';
+            Object.keys(specs).forEach(key => {
+                const title = key.charAt(0).toUpperCase() + key.slice(1);
+                html += `
+                    <div class="spec-category">
+                        <h4>${title.replace(/([A-Z])/g, ' $1').trim()}</h4>
+                        <p>${specs[key]}</p>
+                    </div>
+                `;
+            });
+            return html;
+        }
+
+        // Teknik özellikler toggle fonksiyonu - GÜNCEL VERSİYON
+        function toggleSpecs(index) {
+            const specsContent = document.getElementById(`specs-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            
+            // Eğer başka bir spec açıksa kapat
+            if (currentOpenSpec !== null && currentOpenSpec !== index) {
+                const prevSpecs = document.getElementById(`specs-${currentOpenSpec}`);
+                const prevIcon = document.getElementById(`icon-${currentOpenSpec}`);
+                prevSpecs.classList.remove('active');
+                prevSpecs.style.maxHeight = '0px';
+                prevIcon.style.transform = 'rotate(0deg)';
+            }
+            
+            // Mevcut spec'i toggle et
+            if (specsContent.classList.contains('active')) {
+                specsContent.classList.remove('active');
+                specsContent.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+                currentOpenSpec = null;
+            } else {
+                // Önce active class'ı ekle (padding'i aktive et)
+                specsContent.classList.add('active');
+                
+                // Bir sonraki frame'de height hesapla (padding uygulandıktan sonra)
+                requestAnimationFrame(() => {
+                    const fullHeight = specsContent.scrollHeight;
+                    const extraPadding = 40; // Ekstra güvenlik payı
+                    const finalHeight = fullHeight + extraPadding; // 2 satır kadar ekstra alan
+                    specsContent.style.maxHeight = finalHeight + 'px';
+                });
+                
+                icon.style.transform = 'rotate(180deg)';
+                currentOpenSpec = index;
+            }
+        }
+
+        // Sayfa yüklendiğinde slider ve ürünleri oluştur
+        document.addEventListener('DOMContentLoaded', function() {
+            createSlider();
+            createProducts();
+            
+            // Loading animasyonları için observer'ı yeniden başlat
+            initializeObserver();
+        });
+
+        // Contact Modal Functions
+        function openContactModal(type) {
+            const modal = document.getElementById('contactModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const turkeyOption = document.getElementById('turkeyOption');
+            const ukOption = document.getElementById('ukOption');
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            if (type === 'phone') {
+                modalTitle.textContent = 'Telefon ile Ara';
+                turkeyOption.href = 'tel:+905413067734';
+                ukOption.href = 'tel:+447847795309';
+            } else if (type === 'whatsapp') {
+                modalTitle.textContent = 'WhatsApp ile Mesaj Gönder';
+                turkeyOption.href = 'https://wa.me/905413067734';
+                ukOption.href = 'https://wa.me/447847795309';
+            } else if (type === 'email') {
+                modalTitle.textContent = 'E-posta Gönder';
+                turkeyOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20Merkez%20Ofis';
+                ukOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20İngiltere%20Şubesi';
+                
+                document.querySelector('#turkeyOption .option-details').textContent = 'info@bascold.com';
+                document.querySelector('#ukOption .option-details').textContent = 'info@bascold.com';
+            }
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            document.querySelector('#turkeyOption .option-details').textContent = '+90 541 306 77 34';
+            document.querySelector('#ukOption .option-details').textContent = '+44 7847 795309';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeContactModal();
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]:not(.modal-link)').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.length > 1 && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Image Slider Functions
+        let currentSlideIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        function nextSlide() {
+            const totalSlides = sliderImages.length;
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Stats counter animation
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for animations
+        function initializeObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        
+                        if (entry.target.classList.contains('stat-item')) {
+                            const counter = entry.target.querySelector('h3');
+                            const targetCount = parseInt(counter.getAttribute('data-count'));
+                            animateValue(counter, 0, targetCount, 2000);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.loading').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Loading animation for page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                closeContactModal();
+            }
+        });
+
+        // Print styles
+        window.addEventListener('beforeprint', () => {
+            document.querySelector('.fixed-contact').style.display = 'none';
+            document.querySelector('.scroll-top').style.display = 'none';
+        });
+
+        window.addEventListener('afterprint', () => {
+            document.querySelector('.fixed-contact').style.display = 'flex';
+            document.querySelector('.scroll-top').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

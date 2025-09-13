@@ -27,6 +27,134 @@
             overflow-x: hidden;
         }
 
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .language-toggle {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1e40af;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: #1d4ed8;
+        }
+
+        .language-options {
+            display: none;
+            flex-direction: column;
+        }
+
+        .language-options.active {
+            display: flex;
+        }
+
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .language-option:hover {
+            background: #f3f4f6;
+            color: #1e40af;
+        }
+
+        .language-option.active {
+            background: #eff6ff;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flag-tr { background: #e30a17; color: white; }
+        .flag-en { background: #012169; color: white; }
+        .flag-ar { background: #006233; color: white; }
+
+        /* RTL Support */
+        body[dir="rtl"] {
+            direction: rtl;
+        }
+
+        body[dir="rtl"] .language-selector {
+            right: auto;
+            left: 20px;
+        }
+
+        body[dir="rtl"] .navbar {
+            flex-direction: row-reverse;
+        }
+
+        body[dir="rtl"] .nav-menu {
+            text-align: right;
+        }
+
+        body[dir="rtl"] .contact-item {
+            flex-direction: row-reverse;
+        }
+
+        body[dir="rtl"] .contact-item i {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        body[dir="rtl"] .option-header {
+            flex-direction: row-reverse;
+        }
+
+        body[dir="rtl"] .option-icon {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        body[dir="rtl"] .option-details {
+            margin-left: 0;
+            margin-right: 56px;
+        }
+
+        body[dir="rtl"] .about-content {
+            direction: rtl;
+        }
+
+        body[dir="rtl"] .service-card,
+        body[dir="rtl"] .product-card {
+            text-align: right;
+        }
+
+        body[dir="rtl"] .fixed-contact {
+            right: auto;
+            left: 20px;
+        }
+
         /* Header - Sabit Üst Kısım */
         .header {
             position: fixed;
@@ -814,6 +942,19 @@
                 left: 0;
             }
 
+            body[dir="rtl"] .nav-menu {
+                left: auto;
+                right: -100%;
+            }
+
+            body[dir="rtl"] .nav-menu.active {
+                right: 0;
+            }
+
+            .language-selector {
+                top: 130px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -900,6 +1041,25 @@
             .specs-content.active {
                 padding: 1rem;
             }
+
+            body[dir="rtl"] .fixed-contact {
+                right: auto;
+                left: 15px;
+            }
+
+            body[dir="rtl"] .scroll-top {
+                right: auto;
+                left: 20px;
+            }
+
+            body[dir="rtl"] .language-selector {
+                right: auto;
+                left: 20px;
+            }
+
+            body[dir="rtl"] .option-details {
+                margin-right: 0;
+            }
         }
 
         @media (max-width: 480px) {
@@ -941,19 +1101,42 @@
 </head>
 
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector" id="languageSelector">
+        <div class="language-toggle" onclick="toggleLanguageOptions()">
+            <span class="flag-icon flag-tr" id="currentFlag">TR</span>
+            <span id="currentLang">Türkçe</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="language-options" id="languageOptions">
+            <div class="language-option active" onclick="changeLanguage('tr')">
+                <span class="flag-icon flag-tr">TR</span>
+                <span>Türkçe</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('en')">
+                <span class="flag-icon flag-en">EN</span>
+                <span>English</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('ar')">
+                <span class="flag-icon flag-ar">ع</span>
+                <span>العربية</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <nav class="navbar">
             <a href="#home" class="logo">
                 <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" class="logo-image">
             </a>
-            <h1><a href="#home" class="logo">BAS COLD SOĞUTMA</a></h1>
+            <h1><a href="#home" class="logo" data-translate="companyName">BAS COLD SOĞUTMA</a></h1>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about">Hakkımızda</a></li>
-                <li><a href="#services">Hizmetler</a></li>
-                <li><a href="#products">Ürünler</a></li>
-                <li><a href="#contact">İletişim</a></li>
+                <li><a href="#home" data-translate="navHome">Ana Sayfa</a></li>
+                <li><a href="#about" data-translate="navAbout">Hakkımızda</a></li>
+                <li><a href="#services" data-translate="navServices">Hizmetler</a></li>
+                <li><a href="#products" data-translate="navProducts">Ürünler</a></li>
+                <li><a href="#contact" data-translate="navContact">İletişim</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -966,25 +1149,24 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Profesyonel Soğutma Çözümleri</h1>
-            <h3>BAS COLD ENDÜSTRİYEL SOĞUTMA SİSTEMLERİ İTHALAT İHRACAT LTD. ŞTİ.</h3>
-            <p>10+ Yıllık Tecrübeyle Soğutma Sektöründe Etkili Çözümler</p>
-            <a href="#contact" class="cta-button">İletişime Geç</a>
+            <h1 data-translate="heroTitle">Profesyonel Soğutma Çözümleri</h1>
+            <h3 data-translate="heroSubtitle">BAS COLD ENDÜSTRİYEL SOĞUTMA SİSTEMLERİ İTHALAT İHRACAT LTD. ŞTİ.</h3>
+            <p data-translate="heroDescription">10+ Yıllık Tecrübeyle Soğutma Sektöründe Etkili Çözümler</p>
+            <a href="#contact" class="cta-button" data-translate="heroButton">İletişime Geç</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
-            <h2>Hakkımızda</h2>
+            <h2 data-translate="aboutTitle">Hakkımızda</h2>
             <div class="about-content">
                 <div class="about-text loading">
-                    <p>BAS COLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir ve enerji verimli soğutma sistemleri sağlamaktayız.</p>
+                    <p data-translate="aboutText1">BAS COLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir ve enerji verimli soğutma sistemleri sağlamaktayız.</p>
 
-                    <p>Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun ömürlü kullanım için tasarlanmaktadır.</p>
+                    <p data-translate="aboutText2">Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun ömürlü kullanım için tasarlanmaktadır.</p>
 
-                    <p>Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BAS COLD olarak, ürünlerinizin daha hızlı soğutulmasını ve daha uzun süre korunmasını sağlamak için yanınızdayız.</p>
-                    
+                    <p data-translate="aboutText3">Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BAS COLD olarak, ürünlerinizin daha hızlı soğutulmasını ve daha uzun süre korunmasını sağlamak için yanınızdayız.</p>
                 </div>
                 <div class="about-image loading">
                     <img src="resim2.png" alt="Fabrika Görünümü">
@@ -996,49 +1178,72 @@
     <!-- Services Section -->
     <section class="section" id="services">
         <div class="container">
-            <h2>Hizmetlerimiz</h2>
+            <h2 data-translate="servicesTitle">Hizmetlerimiz</h2>
             <div class="services-grid">
                 <div class="service-card loading">
                     <div class="service-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
-                    <h3>Evaporatör Sistemleri</h3>
-                    <p>Soğuk oda evaporatörleri, endüstriyel evaporatörler ve özel tasarım soğutma çözümleri</p>
+                    <h3 data-translate="serviceTitle1">Evaporatör Sistemleri</h3>
+                    <p data-translate="serviceDesc1">Soğuk oda evaporatörleri, endüstriyel evaporatörler ve özel tasarım soğutma çözümleri</p>
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
                         <i class="fas fa-wind"></i>
                     </div>
-                    <h3>Kondenser Sistemleri</h3>
-                    <p>Hava soğutmalı, su soğutmalı ve evaporatif kondenser sistemleri ile ısı atım çözümleri</p>
+                    <h3 data-translate="serviceTitle2">Kondenser Sistemleri</h3>
+                    <p data-translate="serviceDesc2">Hava soğutmalı, su soğutmalı ve evaporatif kondenser sistemleri ile ısı atım çözümleri</p>
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3>Soğuk oda sandviç Panel</h3>
-                    <p>Yüksek yalıtım performansı, hijyenik yüzey ve kolay montaj özellikli soğuk oda panelleri</p>
+                    <h3 data-translate="serviceTitle3">Soğuk oda sandviç Panel</h3>
+                    <p data-translate="serviceDesc3">Yüksek yalıtım performansı, hijyenik yüzey ve kolay montaj özellikli soğuk oda panelleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle4">Defrost Rezistansları</h3>
+                    <p data-translate="serviceDesc4">Soğuk oda ve evaporatör sistemleri için yüksek kaliteli defrost rezistansları ve otomatik buzçözme çözümleri</p>
+                </div>
+
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle5">Fan Motorları</h3>
+                    <p data-translate="serviceDesc5">Evaporatör ve kondenser sistemleri için enerji verimli, sessiz çalışan ve uzun ömürlü fan motorları</p>
+                </div>
+
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle6">Soğutucu Akışkan Gazlar</h3>
+                    <p data-translate="serviceDesc6">R134a, R404A, R410A, R407C ve çevre dostu alternatif soğutucu gazların tedariki ve dolum hizmetleri</p>
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
                         <i class="fas fa-cog"></i>
                     </div>
-                    <h3>Proje Danışmanlığı</h3>
-                    <p>Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı</p>
+                    <h3 data-translate="serviceTitle7">Proje Danışmanlığı</h3>
+                    <p data-translate="serviceDesc7">Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı</p>
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
                         <i class="fas fa-industry"></i>
                     </div>
-                    <h3>Endüstriyel Çözümler</h3>
-                    <p>Gıda sanayii, kimya, ilaç ve diğer endüstri kolları için özel soğutma sistemleri</p>
+                    <h3 data-translate="serviceTitle8">Endüstriyel Çözümler</h3>
+                    <p data-translate="serviceDesc8">Gıda sanayii, kimya, ilaç ve diğer endüstri kolları için özel soğutma sistemleri</p>
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h3>Kalite Garantisi</h3>
-                    <p>CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları</p>
+                    <h3 data-translate="serviceTitle9">Kalite Garantisi</h3>
+                    <p data-translate="serviceDesc9">CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları</p>
                 </div>
 
             </div>
@@ -1048,7 +1253,7 @@
     <!-- Products Section -->
     <section class="section products" id="products">
         <div class="container">
-            <h2>Ürünlerimiz</h2>
+            <h2 data-translate="productsTitle">Ürünlerimiz</h2>
             
             <!-- Image Slider -->
             <div class="image-slider" id="imageSlider">
@@ -1064,19 +1269,19 @@
     <!-- Stats Section -->
     <section class="section stats" id="stats">
         <div class="container">
-            <h2>Rakamlarla BAS COLD</h2>
+            <h2 data-translate="statsTitle">Rakamlarla BAS COLD</h2>
             <div class="stats-grid">
                 <div class="stat-item loading">
                     <h3 data-count="10">0</h3>
-                    <p>Yıllık Deneyim</p>
+                    <p data-translate="statYears">Yıllık Deneyim</p>
                 </div>
                 <div class="stat-item loading">
                     <h3 data-count="1001">0</h3>
-                    <p>Tamamlanan Proje</p>
+                    <p data-translate="statProjects">Tamamlanan Proje</p>
                 </div>
                 <div class="stat-item loading">
                     <h3 data-count="1001">0</h3>
-                    <p>Mutlu Müşteri</p>
+                    <p data-translate="statClients">Mutlu Müşteri</p>
                 </div>
             </div>
         </div>
@@ -1085,35 +1290,35 @@
     <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
-            <h2>İletişim</h2>
+            <h2 data-translate="contactTitle">İletişim</h2>
             <div class="contact-content">
                 <div class="contact-info loading">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4>Merkez Ofis</h4>
-                            <p>Organize Sanayi Bölgesi<br>İstanbul, Türkiye</p>
+                            <h4 data-translate="contactOffice">Merkez Ofis</h4>
+                            <p data-translate="contactAddress">Organize Sanayi Bölgesi<br>İstanbul, Türkiye</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <h4>Telefon</h4>
-                            <p>Merkez: +90 541 306 77 34<br>İngiltere: +44 7847 795309</p>
+                            <h4 data-translate="contactPhone">Telefon</h4>
+                            <p data-translate="contactNumbers">Merkez: +90 541 306 77 34<br>İngiltere: +44 7847 795309</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <h4>E-posta</h4>
+                            <h4 data-translate="contactEmail">E-posta</h4>
                             <p>info@bascold.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <h4>Çalışma Saatleri</h4>
-                            <p>Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 08:00 - 12:00</p>
+                            <h4 data-translate="contactHours">Çalışma Saatleri</h4>
+                            <p data-translate="contactSchedule">Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 08:00 - 12:00</p>
                         </div>
                     </div>
                 </div>
@@ -1125,9 +1330,9 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>BAS COLD SOĞUTMA</h3>
+                <h3 data-translate="companyName">BAS COLD SOĞUTMA</h3>
                 <img src="logo3.jpg" alt="BASCOLD SOĞUTMA" style="height: 80px; margin-bottom: 1rem;"><br>
-                <p>10+ yıllık deneyimimizle soğutma sektöründe etkili çözüm ortağınız.</p>
+                <p data-translate="footerDescription">10+ yıllık deneyimimizle soğutma sektöründe etkili çözüm ortağınız.</p>
                 <div style="margin-top: 1rem;">
                     <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
                     <a href="#" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-linkedin"></i></a>
@@ -1136,29 +1341,29 @@
                 </div>
             </div>
             <div class="footer-section">
-                <h3>Hızlı Linkler</h3>
+                <h3 data-translate="footerQuickLinks">Hızlı Linkler</h3>
                 <ul>
-                    <li><a href="#home">Ana Sayfa</a></li>
-                    <li><a href="#about">Hakkımızda</a></li>
-                    <li><a href="#services">Hizmetler</a></li>
-                    <li><a href="#products">Ürünler</a></li>
-                    <li><a href="#contact">İletişim</a></li>
+                    <li><a href="#home" data-translate="navHome">Ana Sayfa</a></li>
+                    <li><a href="#about" data-translate="navAbout">Hakkımızda</a></li>
+                    <li><a href="#services" data-translate="navServices">Hizmetler</a></li>
+                    <li><a href="#products" data-translate="navProducts">Ürünler</a></li>
+                    <li><a href="#contact" data-translate="navContact">İletişim</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Hizmetlerimiz</h3>
+                <h3 data-translate="footerServices">Hizmetlerimiz</h3>
                 <ul>
-                    <li><a href="#">Evaporatör Sistemleri</a></li>
-                    <li><a href="#">Kondenser Sistemleri</a></li>
-                    <li><a href="#">Proje Danışmanlığı</a></li>
-                    <li><a href="#">Endüstriyel Çözümler</a></li>
-                    <li><a href="#">Kalite Garantisi</a></li>
+                    <li><a href="#" data-translate="serviceTitle1">Evaporatör Sistemleri</a></li>
+                    <li><a href="#" data-translate="serviceTitle2">Kondenser Sistemleri</a></li>
+                    <li><a href="#" data-translate="serviceTitle7">Proje Danışmanlığı</a></li>
+                    <li><a href="#" data-translate="serviceTitle8">Endüstriyel Çözümler</a></li>
+                    <li><a href="#" data-translate="serviceTitle9">Kalite Garantisi</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>İletişim Bilgileri</h3>
+                <h3 data-translate="footerContactInfo">İletişim Bilgileri</h3>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Organize Sanayi Bölgesi, İstanbul</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-translate="footerAddress">Organize Sanayi Bölgesi, İstanbul</span></li>
                     <li><i class="fas fa-phone"></i> +90 541 306 77 34</li>
                     <li><i class="fas fa-phone"></i> +44 7847 795309</li>
                     <li><i class="fas fa-envelope"></i> info@bascold.com</li>
@@ -1167,19 +1372,19 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 BAS COLD Soğutma. Tüm hakları saklıdır.</p>
+            <p data-translate="copyright">&copy; 2024 BAS COLD Soğutma. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
     <!-- Fixed Contact Buttons -->
     <div class="fixed-contact">
-        <div class="contact-btn phone-btn" title="Ara" onclick="openContactModal('phone')">
+        <div class="contact-btn phone-btn" data-translate-title="callTitle" title="Ara" onclick="openContactModal('phone')">
             <i class="fas fa-phone"></i>
         </div>
         <div class="contact-btn whatsapp-btn" title="WhatsApp" onclick="openContactModal('whatsapp')">
             <i class="fab fa-whatsapp"></i>
         </div>
-        <div class="contact-btn email-btn" title="E-posta Gönder" onclick="openContactModal('email')">
+        <div class="contact-btn email-btn" data-translate-title="emailTitle" title="E-posta Gönder" onclick="openContactModal('email')">
             <i class="fas fa-envelope"></i>
         </div>
     </div>
@@ -1189,8 +1394,8 @@
         <div class="modal-content">
             <button class="close-modal" onclick="closeContactModal()">&times;</button>
             <div class="modal-header">
-                <h3 id="modalTitle">İletişim Seçin</h3>
-                <p>Hangi ofisimizle iletişime geçmek istiyorsunuz?</p>
+                <h3 id="modalTitle" data-translate="modalTitle">İletişim Seçin</h3>
+                <p id="modalSubtitle" data-translate="modalSubtitle">Hangi ofisimizle iletişime geçmek istiyorsunuz?</p>
             </div>
             
             <a href="#" class="contact-option modal-link" id="turkeyOption">
@@ -1199,11 +1404,11 @@
                         <i class="fas fa-building"></i>
                     </div>
                     <div class="option-info">
-                        <h4>Merkez Ofis</h4>
+                        <h4 data-translate="turkeyOffice">Merkez Ofis</h4>
                         <p>Mehtap GENİŞ</p>
                     </div>
                 </div>
-                <div class="option-details">+90 541 306 77 34</div>
+                <div class="option-details" id="turkeyDetails">+90 541 306 77 34</div>
             </a>
 
             <a href="#" class="contact-option modal-link" id="ukOption">
@@ -1212,11 +1417,11 @@
                         <i class="fas fa-flag"></i>
                     </div>
                     <div class="option-info">
-                        <h4>İngiltere Şubesi</h4>
+                        <h4 data-translate="ukOffice">İngiltere Şubesi</h4>
                         <p>Serap Deniz BAŞ</p>
                     </div>
                 </div>
-                <div class="option-details">+44 7847 795309</div>
+                <div class="option-details" id="ukDetails">+44 7847 795309</div>
             </a>
         </div>
     </div>
@@ -1227,6 +1432,647 @@
     </button>
 
     <script>
+        // DİL ÇEVİRİ SİSTEMİ
+        const translations = {
+            tr: {
+                // Navigation
+                companyName: "BAS COLD SOĞUTMA",
+                navHome: "Ana Sayfa",
+                navAbout: "Hakkımızda",
+                navServices: "Hizmetler",
+                navProducts: "Ürünler",
+                navContact: "İletişim",
+                
+                // Hero Section
+                heroTitle: "Profesyonel Soğutma Çözümleri",
+                heroSubtitle: "BAS COLD ENDÜSTRİYEL SOĞUTMA SİSTEMLERİ İTHALAT İHRACAT LTD. ŞTİ.",
+                heroDescription: "10+ Yıllık Tecrübeyle Soğutma Sektöründe Etkili Çözümler",
+                heroButton: "İletişime Geç",
+                
+                // About Section
+                aboutTitle: "Hakkımızda",
+                aboutText1: "BAS COLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir ve enerji verimli soğutma sistemleri sağlamaktayız.",
+                aboutText2: "Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun ömürlü kullanım için tasarlanmaktadır.",
+                aboutText3: "Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BAS COLD olarak, ürünlerinizin daha hızlı soğutulmasını ve daha uzun süre korunmasını sağlamak için yanınızdayız.",
+                
+                // Services Section
+                servicesTitle: "Hizmetlerimiz",
+                serviceTitle1: "Evaporatör Sistemleri",
+                serviceDesc1: "Soğuk oda evaporatörleri, endüstriyel evaporatörler ve özel tasarım soğutma çözümleri",
+                serviceTitle2: "Kondenser Sistemleri",
+                serviceDesc2: "Hava soğutmalı, su soğutmalı ve evaporatif kondenser sistemleri ile ısı atım çözümleri",
+                serviceTitle3: "Soğuk oda sandviç Panel",
+                serviceDesc3: "Yüksek yalıtım performansı, hijyenik yüzey ve kolay montaj özellikli soğuk oda panelleri",
+                serviceTitle4: "Defrost Rezistansları",
+                serviceDesc4: "Soğuk oda ve evaporatör sistemleri için yüksek kaliteli defrost rezistansları ve otomatik buzçözme çözümleri",
+                serviceTitle5: "Fan Motorları",
+                serviceDesc5: "Evaporatör ve kondenser sistemleri için enerji verimli, sessiz çalışan ve uzun ömürlü fan motorları",
+                serviceTitle6: "Soğutucu Akışkan Gazlar",
+                serviceDesc6: "R134a, R404A, R410A, R407C ve çevre dostu alternatif soğutucu gazların tedariki ve dolum hizmetleri",
+                serviceTitle7: "Proje Danışmanlığı",
+                serviceDesc7: "Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı",
+                serviceTitle8: "Endüstriyel Çözümler",
+                serviceDesc8: "Gıda sanayii, kimya, ilaç ve diğer endüstri kolları için özel soğutma sistemleri",
+                serviceTitle9: "Kalite Garantisi",
+                serviceDesc9: "CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları",
+                
+                // Products Section
+                productsTitle: "Ürünlerimiz",
+                techSpecs: "Teknik Özellikler",
+                
+                // Stats Section
+                statsTitle: "Rakamlarla BAS COLD",
+                statYears: "Yıllık Deneyim",
+                statProjects: "Tamamlanan Proje",
+                statClients: "Mutlu Müşteri",
+                
+                // Contact Section
+                contactTitle: "İletişim",
+                contactOffice: "Merkez Ofis",
+                contactAddress: "Organize Sanayi Bölgesi<br>İstanbul, Türkiye",
+                contactPhone: "Telefon",
+                contactNumbers: "Merkez: +90 541 306 77 34<br>İngiltere: +44 7847 795309",
+                contactEmail: "E-posta",
+                contactHours: "Çalışma Saatleri",
+                contactSchedule: "Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 08:00 - 12:00",
+                
+                // Footer
+                footerDescription: "10+ yıllık deneyimimizle soğutma sektöründe etkili çözüm ortağınız.",
+                footerQuickLinks: "Hızlı Linkler",
+                footerServices: "Hizmetlerimiz",
+                footerContactInfo: "İletişim Bilgileri",
+                footerAddress: "Organize Sanayi Bölgesi, İstanbul",
+                copyright: "© 2024 BAS COLD Soğutma. Tüm hakları saklıdır.",
+                
+                // Modal
+                modalTitle: "İletişim Seçin",
+                modalSubtitle: "Hangi ofisimizle iletişime geçmek istiyorsunuz?",
+                turkeyOffice: "Merkez Ofis",
+                ukOffice: "İngiltere Şubesi",
+                
+                // Titles
+                callTitle: "Ara",
+                emailTitle: "E-posta Gönder",
+                
+                // Modal Types
+                phoneModalTitle: "Telefon ile Ara",
+                whatsappModalTitle: "WhatsApp ile Mesaj Gönder",
+                emailModalTitle: "E-posta Gönder"
+            },
+            en: {
+                // Navigation
+                companyName: "BAS COLD COOLING",
+                navHome: "Home",
+                navAbout: "About Us",
+                navServices: "Services",
+                navProducts: "Products",
+                navContact: "Contact",
+                
+                // Hero Section
+                heroTitle: "Professional Cooling Solutions",
+                heroSubtitle: "BAS COLD INDUSTRIAL COOLING SYSTEMS IMPORT EXPORT LTD. CO.",
+                heroDescription: "Effective Solutions in Cooling Industry with 10+ Years of Experience",
+                heroButton: "Get In Touch",
+                
+                // About Section
+                aboutTitle: "About Us",
+                aboutText1: "BAS COLD Industrial Cooling Systems is a company that offers innovative and high-quality solutions in the industrial cooling sector. With our Turkey-based production capacity and international experience, we provide reliable and energy-efficient cooling systems to businesses worldwide.",
+                aboutText2: "Our product range includes evaporators, condensers and complete cooling units, offering customized solutions for each customer's needs. All our products are tested in accordance with international quality standards and designed for long-lasting use.",
+                aboutText3: "Our company, which adopts customer satisfaction as our top priority, aims to establish strong business partnerships in the export field and sustainable growth in the global market. As BAS COLD, we are here to ensure that your products are cooled faster and preserved for longer.",
+                
+                // Services Section
+                servicesTitle: "Our Services",
+                serviceTitle1: "Evaporator Systems",
+                serviceDesc1: "Cold room evaporators, industrial evaporators and custom cooling solutions",
+                serviceTitle2: "Condenser Systems",
+                serviceDesc2: "Air-cooled, water-cooled and evaporative condenser systems with heat rejection solutions",
+                serviceTitle3: "Cold Room Sandwich Panels",
+                serviceDesc3: "Cold room panels with high insulation performance, hygienic surface and easy assembly features",
+                serviceTitle4: "Defrost Resistors",
+                serviceDesc4: "High quality defrost resistors and automatic defrosting solutions for cold room and evaporator systems",
+                serviceTitle5: "Fan Motors",
+                serviceDesc5: "Energy efficient, quiet and long-lasting fan motors for evaporator and condenser systems",
+                serviceTitle6: "Refrigerant Gases",
+                serviceDesc6: "Supply and filling services of R134a, R404A, R410A, R407C and environmentally friendly alternative refrigerant gases",
+                serviceTitle7: "Project Consultancy",
+                serviceDesc7: "Engineering services, system design and energy efficiency consultancy",
+                serviceTitle8: "Industrial Solutions",
+                serviceDesc8: "Special cooling systems for food industry, chemistry, pharmaceuticals and other industry sectors",
+                serviceTitle9: "Quality Guarantee",
+                serviceDesc9: "CE certified products, ISO standards and international quality certificates",
+                
+                // Products Section
+                productsTitle: "Our Products",
+                techSpecs: "Technical Specifications",
+                
+                // Stats Section
+                statsTitle: "BAS COLD in Numbers",
+                statYears: "Years of Experience",
+                statProjects: "Completed Projects",
+                statClients: "Happy Customers",
+                
+                // Contact Section
+                contactTitle: "Contact",
+                contactOffice: "Head Office",
+                contactAddress: "Organized Industrial Zone<br>Istanbul, Turkey",
+                contactPhone: "Phone",
+                contactNumbers: "Headquarters: +90 541 306 77 34<br>UK: +44 7847 795309",
+                contactEmail: "Email",
+                contactHours: "Working Hours",
+                contactSchedule: "Monday - Friday: 08:00 - 18:00<br>Saturday: 08:00 - 12:00",
+                
+                // Footer
+                footerDescription: "Your effective solution partner in the cooling industry with 10+ years of experience.",
+                footerQuickLinks: "Quick Links",
+                footerServices: "Our Services",
+                footerContactInfo: "Contact Information",
+                footerAddress: "Organized Industrial Zone, Istanbul",
+                copyright: "© 2024 BAS COLD Cooling. All rights reserved.",
+                
+                // Modal
+                modalTitle: "Choose Contact",
+                modalSubtitle: "Which office would you like to contact?",
+                turkeyOffice: "Head Office",
+                ukOffice: "UK Branch",
+                
+                // Titles
+                callTitle: "Call",
+                emailTitle: "Send Email",
+                
+                // Modal Types
+                phoneModalTitle: "Call by Phone",
+                whatsappModalTitle: "Send WhatsApp Message",
+                emailModalTitle: "Send Email"
+            },
+            ar: {
+                // Navigation
+                companyName: "باس كولد للتبريد",
+                navHome: "الرئيسية",
+                navAbout: "من نحن",
+                navServices: "خدماتنا",
+                navProducts: "منتجاتنا",
+                navContact: "اتصل بنا",
+                
+                // Hero Section
+                heroTitle: "حلول التبريد المهنية",
+                heroSubtitle: "شركة باس كولد لأنظمة التبريد الصناعية للاستيراد والتصدير المحدودة",
+                heroDescription: "حلول فعالة في قطاع التبريد مع أكثر من 10 سنوات من الخبرة",
+                heroButton: "تواصل معنا",
+                
+                // About Section
+                aboutTitle: "من نحن",
+                aboutText1: "باس كولد للأنظمة الصناعية للتبريد هي شركة تقدم حلولاً مبتكرة وعالية الجودة في قطاع التبريد الصناعي. بفضل طاقتنا الإنتاجية المتمركزة في تركيا وخبرتنا الدولية، نوفر أنظمة تبريد موثوقة وموفرة للطاقة للشركات في جميع أنحاء العالم.",
+                aboutText2: "تشمل مجموعة منتجاتنا المبخرات والمكثفات ووحدات التبريد الكاملة، ونقدم حلولاً مخصصة لاحتياجات كل عميل. جميع منتجاتنا تخضع للاختبار وفقاً للمعايير الدولية للجودة ومصممة للاستخدام طويل الأمد.",
+                aboutText3: "شركتنا التي تتبنى رضا العملاء كقيمة أساسية لنا، تهدف إلى إقامة شراكات تجارية قوية في مجال التصدير ونمو مستدام في السوق العالمية. كشركة باس كولد، نحن هنا لضمان تبريد منتجاتكم بشكل أسرع والحفاظ عليها لفترة أطول.",
+                
+                // Services Section
+                servicesTitle: "خدماتنا",
+                serviceTitle1: "أنظمة المبخرات",
+                serviceDesc1: "مبخرات الغرف الباردة، المبخرات الصناعية وحلول التبريد المخصصة",
+                serviceTitle2: "أنظمة المكثفات",
+                serviceDesc2: "أنظمة المكثفات المبردة بالهواء والماء والتبخيرية مع حلول طرد الحرارة",
+                serviceTitle3: "ألواح الساندويتش للغرف الباردة",
+                serviceDesc3: "ألواح الغرف الباردة بأداء عزل عالي وسطح صحي وميزات تركيب سهلة",
+                serviceTitle4: "مقاومات إزالة الجليد",
+                serviceDesc4: "مقاومات إزالة الجليد عالية الجودة وحلول إزالة الجليد التلقائية لأنظمة الغرف الباردة والمبخرات",
+                serviceTitle5: "محركات المراوح",
+                serviceDesc5: "محركات مراوح موفرة للطاقة وهادئة وطويلة الأمد لأنظمة المبخرات والمكثفات",
+                serviceTitle6: "غازات التبريد",
+                serviceDesc6: "خدمات توريد وتعبئة غازات التبريد R134a وR404A وR410A وR407C والبدائل الصديقة للبيئة",
+                serviceTitle7: "استشارات المشاريع",
+                serviceDesc7: "خدمات الهندسة وتصميم الأنظمة واستشارات كفاءة الطاقة",
+                serviceTitle8: "الحلول الصناعية",
+                serviceDesc8: "أنظمة تبريد خاصة لصناعة الأغذية والكيماويات والأدوية وقطاعات الصناعة الأخرى",
+                serviceTitle9: "ضمان الجودة",
+                serviceDesc9: "منتجات معتمدة CE ومعايير ISO وشهادات الجودة الدولية",
+                
+                // Products Section
+                productsTitle: "منتجاتنا",
+                techSpecs: "المواصفات التقنية",
+                
+                // Stats Section
+                statsTitle: "باس كولد بالأرقام",
+                statYears: "سنوات من الخبرة",
+                statProjects: "مشاريع مكتملة",
+                statClients: "عملاء سعداء",
+                
+                // Contact Section
+                contactTitle: "اتصل بنا",
+                contactOffice: "المكتب الرئيسي",
+                contactAddress: "المنطقة الصناعية المنظمة<br>إسطنبول، تركيا",
+                contactPhone: "الهاتف",
+                contactNumbers: "المقر الرئيسي: +90 541 306 77 34<br>المملكة المتحدة: +44 7847 795309",
+                contactEmail: "البريد الإلكتروني",
+                contactHours: "ساعات العمل",
+                contactSchedule: "الاثنين - الجمعة: 08:00 - 18:00<br>السبت: 08:00 - 12:00",
+                
+                // Footer
+                footerDescription: "شريكك في الحلول الفعالة في صناعة التبريد مع أكثر من 10 سنوات من الخبرة.",
+                footerQuickLinks: "روابط سريعة",
+                footerServices: "خدماتنا",
+                footerContactInfo: "معلومات الاتصال",
+                footerAddress: "المنطقة الصناعية المنظمة، إسطنبول",
+                copyright: "© 2024 باس كولد للتبريد. جميع الحقوق محفوظة.",
+                
+                // Modal
+                modalTitle: "اختر طريقة الاتصال",
+                modalSubtitle: "أي مكتب تريد التواصل معه؟",
+                turkeyOffice: "المكتب الرئيسي",
+                ukOffice: "فرع المملكة المتحدة",
+                
+                // Titles
+                callTitle: "اتصل",
+                emailTitle: "أرسل بريد إلكتروني",
+                
+                // Modal Types
+                phoneModalTitle: "اتصل بالهاتف",
+                whatsappModalTitle: "أرسل رسالة واتساب",
+                emailModalTitle: "أرسل بريد إلكتروني"
+            }
+        };
+
+        // ÜRÜN ÇEVİRİLERİ
+        const productTranslations = {
+            tr: {
+                products: [
+                    {
+                        title: 'RK-G Serisi Kondenser',
+                        specs: {
+                            batarya: 'Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8", 5/16\'\' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir.',
+                            kabin: 'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşı dayanımı olan galvaniz çelikten üretilmektedir.',
+                            fan: 'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır.',
+                            kapasite: 'Kapasiteler Avrupa fanlarına göre dT=15K şartında R404A gazı için EN 328 Standartları ile hesaplanmıştır.',
+                            test: 'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
+                        }
+                    },
+                    {
+                        title: 'RK-S Serisi Kondenser',
+                        specs: {
+                            batarya: 'Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır.',
+                            kabin: 'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşı dayanımı olan galvaniz çelikten üretilmektedir.',
+                            fan: 'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır.',
+                            kapasite: 'Kapasiteler Avrupa fanlarına göre dT=15K şartında R404A gazı için EN 328 Standartları ile hesaplanmıştır.',
+                            test: 'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
+                        }
+                    },
+                    {
+                        title: 'RK Özel Seri Kondenser',
+                        specs: {
+                            batarya: 'Bakır borulu RK Serisi Ticari Tip Kondenserler özel tasarım ile üretilmektedir.',
+                            kabin: 'Özel seri kondenser kabinleri müşteri ihtiyaçlarına göre tasarlanmaktadır.',
+                            fan: 'Özel fan seçenekleri ile yüksek performans sağlanmaktadır.',
+                            kapasite: 'Özel hesaplamalar ile kapasite optimizasyonu yapılmaktadır.',
+                            test: 'Özel test prosedürleri uygulanmaktadır.'
+                        }
+                    },
+                    {
+                        title: 'RH Kabinli Kondenser',
+                        specs: {
+                            batarya: 'RH Serisi kabinli kondenserler yüksek verimlilik için tasarlanmıştır.',
+                            kabin: 'Dayanıklı kabin yapısı ile uzun ömürlü kullanım sağlanır.',
+                            fan: 'Sessiz çalışan fan teknolojisi kullanılmaktadır.',
+                            kapasite: 'Yüksek kapasite seçenekleri mevcuttur.',
+                            test: 'Kalite testleri ile güvenilirlik sağlanmaktadır.'
+                        }
+                    },
+                    {
+                        title: 'Ren M Box Kabinli Kondenser',
+                        specs: {
+                            batarya: 'M Box serisi kompakt tasarım ile yüksek performans sunar.',
+                            kabin: 'Modüler kabin yapısı ile kolay montaj sağlanır.',
+                            fan: 'Enerji verimli fan motorları kullanılmaktadır.',
+                            kapasite: 'Optimum kapasite/boyut oranı sunulmaktadır.',
+                            test: 'Kapsamlı test prosedürleri uygulanmaktadır.'
+                        }
+                    },
+                    {
+                        title: 'Ren S Box Kabinli Kondenser',
+                        specs: {
+                            batarya: 'S Box serisi standart uygulamalar için idealdir.',
+                            kabin: 'Standart kabin boyutları ile geniş uygulama alanı.',
+                            fan: 'Güvenilir fan teknolojisi kullanılmaktadır.',
+                            kapasite: 'Çeşitli kapasite seçenekleri mevcuttur.',
+                            test: 'Standart test prosedürleri uygulanmaktadır.'
+                        }
+                    },
+                    {
+                        title: 'Ren H Box Kabinli Kondenser',
+                        specs: {
+                            batarya: 'H Box serisi yüksek kapasite uygulamaları için tasarlanmıştır.',
+                            kabin: 'Büyük kapasiteli kabinler ile yüksek performans.',
+                            fan: 'Yüksek debili fan sistemleri kullanılmaktadır.',
+                            kapasite: 'Büyük kapasiteli uygulamalar için ideal.',
+                            test: 'Yüksek basınç testleri yapılmaktadır.'
+                        }
+                    },
+                    {
+                        title: 'Soğuk Oda Evaporatörleri',
+                        specs: {
+                            batarya: 'RSC Serisi evaporatörler soğuk oda uygulamaları için özel tasarlanmıştır.',
+                            kabin: 'Hijyenik ve dayanıklı kabin yapısı.',
+                            fan: 'Sessiz çalışan evaporatör fanları.',
+                            defrost: 'Elektrikli defrost sistemi ile otomatik buzçözme.',
+                            kapasite: 'Çeşitli soğuk oda boyutları için uygun kapasiteler.',
+                            test: 'Soğuk oda koşullarında test edilmiştir.'
+                        }
+                    },
+                    {
+                        title: 'Tavan Tipi Evaporatörler',
+                        specs: {
+                            batarya: 'RYE Serisi tavan tipi evaporatörler kompakt tasarıma sahiptir.',
+                            kabin: 'Tavan montajına uygun özel tasarım.',
+                            fan: 'Düşük profilli fan tasarımı.',
+                            defrost: 'Entegre defrost sistemi.',
+                            kapasite: 'Tavan montajı için optimize edilmiş kapasiteler.',
+                            test: 'Tavan montaj koşullarında test edilmiştir.'
+                        }
+                    },
+                    {
+                        title: 'Plastik Kabinli Tavan Tipi Evaporatörler',
+                        specs: {
+                            batarya: 'RNK & RNKY Serileri plastik kabin ile hafif yapıya sahiptir.',
+                            kabin: 'Kırılmaz plastik enjeksiyon kabin.',
+                            fan: 'Kompakt fan tasarımı.',
+                            kapasite: 'Küçük ve orta ölçekli uygulamalar için ideal.',
+                            test: 'Plastik kabin dayanıklılık testleri yapılmıştır.'
+                        }
+                    },
+                    {
+                        title: 'Vitrin Soğutucuları',
+                        specs: {
+                            batarya: 'RKF Serisi vitrin soğutucuları ticari vitrinler için tasarlanmıştır.',
+                            kabin: 'Kompakt ve estetik kabin tasarımı.',
+                            fan: 'Sessiz çalışan küçük boyutlu fanlar.',
+                            defrost: 'Otomatik defrost sistemi.',
+                            kapasite: 'Vitrin uygulamaları için optimize edilmiş kapasiteler.',
+                            test: 'Vitrin koşullarında performans testleri yapılmıştır.'
+                        }
+                    },
+                    {
+                        title: 'Yedek Parça ve Aksesuar',
+                        specs: {
+                            parca: 'Orijinal yedek parçalar, filtreler ve sistem aksesuarları.',
+                            stok: 'Geniş stok kapasitesi ile hızlı teslimat.',
+                            kalite: 'OEM kalitesinde parçalar, uluslararası standartlara uygun.',
+                            hizmet: 'Teknik danışmanlık ve satış sonrası destek hizmetleri.'
+                        }
+                    }
+                ]
+            },
+            en: {
+                products: [
+                    {
+                        title: 'RK-G Series Condenser',
+                        specs: {
+                            battery: 'Copper tube RK Series Commercial Type Condensers are designed to work in outdoor and indoor environmental conditions. Manufactured with 3/8", 5/16\'\' tube diameter, 0.35 mm wall thickness, grooved and smooth tube options in staggered arrangement with copper collectors.',
+                            cabinet: 'RK Series Commercial Type Condenser cabinets are manufactured from galvanized steel resistant to various weather conditions.',
+                            fan: 'RK Series Commercial Type Condensers use Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm or 900 rpm fans.',
+                            capacity: 'Capacities are calculated according to European fans under dT=15K conditions for R404A gas with EN 328 Standards.',
+                            test: 'RK Series Commercial Type Condensers are tested at 40 bar and shipped with 6 bar nitrogen.'
+                        }
+                    },
+                    {
+                        title: 'RK-S Series Condenser',
+                        specs: {
+                            battery: 'Copper tube RK Series Commercial Type Condensers are designed to work in outdoor and indoor environmental conditions.',
+                            cabinet: 'RK Series Commercial Type Condenser cabinets are manufactured from galvanized steel resistant to various weather conditions.',
+                            fan: 'RK Series Commercial Type Condensers use Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm or 900 rpm fans.',
+                            capacity: 'Capacities are calculated according to European fans under dT=15K conditions for R404A gas with EN 328 Standards.',
+                            test: 'RK Series Commercial Type Condensers are tested at 40 bar and shipped with 6 bar nitrogen.'
+                        }
+                    },
+                    {
+                        title: 'RK Special Series Condenser',
+                        specs: {
+                            battery: 'Copper tube RK Series Commercial Type Condensers are manufactured with special design.',
+                            cabinet: 'Special series condenser cabinets are designed according to customer needs.',
+                            fan: 'High performance is achieved with special fan options.',
+                            capacity: 'Capacity optimization is performed with special calculations.',
+                            test: 'Special test procedures are applied.'
+                        }
+                    },
+                    {
+                        title: 'RH Cabinet Type Condenser',
+                        specs: {
+                            battery: 'RH Series cabinet type condensers are designed for high efficiency.',
+                            cabinet: 'Long-lasting use is ensured with durable cabinet structure.',
+                            fan: 'Silent operating fan technology is used.',
+                            capacity: 'High capacity options are available.',
+                            test: 'Reliability is ensured with quality tests.'
+                        }
+                    },
+                    {
+                        title: 'Ren M Box Cabinet Type Condenser',
+                        specs: {
+                            battery: 'M Box series offers high performance with compact design.',
+                            cabinet: 'Easy assembly is provided with modular cabinet structure.',
+                            fan: 'Energy efficient fan motors are used.',
+                            capacity: 'Optimum capacity/size ratio is offered.',
+                            test: 'Comprehensive test procedures are applied.'
+                        }
+                    },
+                    {
+                        title: 'Ren S Box Cabinet Type Condenser',
+                        specs: {
+                            battery: 'S Box series is ideal for standard applications.',
+                            cabinet: 'Wide application area with standard cabinet dimensions.',
+                            fan: 'Reliable fan technology is used.',
+                            capacity: 'Various capacity options are available.',
+                            test: 'Standard test procedures are applied.'
+                        }
+                    },
+                    {
+                        title: 'Ren H Box Cabinet Type Condenser',
+                        specs: {
+                            battery: 'H Box series is designed for high capacity applications.',
+                            cabinet: 'High performance with large capacity cabinets.',
+                            fan: 'High flow fan systems are used.',
+                            capacity: 'Ideal for large capacity applications.',
+                            test: 'High pressure tests are performed.'
+                        }
+                    },
+                    {
+                        title: 'Cold Room Evaporators',
+                        specs: {
+                            battery: 'RSC Series evaporators are specially designed for cold room applications.',
+                            cabinet: 'Hygienic and durable cabinet structure.',
+                            fan: 'Silent operating evaporator fans.',
+                            defrost: 'Automatic defrosting with electric defrost system.',
+                            capacity: 'Suitable capacities for various cold room sizes.',
+                            test: 'Tested under cold room conditions.'
+                        }
+                    },
+                    {
+                        title: 'Ceiling Type Evaporators',
+                        specs: {
+                            battery: 'RYE Series ceiling type evaporators have compact design.',
+                            cabinet: 'Special design suitable for ceiling mounting.',
+                            fan: 'Low profile fan design.',
+                            defrost: 'Integrated defrost system.',
+                            capacity: 'Capacities optimized for ceiling mounting.',
+                            test: 'Tested under ceiling mounting conditions.'
+                        }
+                    },
+                    {
+                        title: 'Plastic Cabinet Ceiling Type Evaporators',
+                        specs: {
+                            battery: 'RNK & RNKY Series have lightweight structure with plastic cabinet.',
+                            cabinet: 'Unbreakable plastic injection cabinet.',
+                            fan: 'Compact fan design.',
+                            capacity: 'Ideal for small and medium scale applications.',
+                            test: 'Plastic cabinet durability tests have been performed.'
+                        }
+                    },
+                    {
+                        title: 'Display Case Coolers',
+                        specs: {
+                            battery: 'RKF Series display case coolers are designed for commercial display cases.',
+                            cabinet: 'Compact and aesthetic cabinet design.',
+                            fan: 'Silent operating small size fans.',
+                            defrost: 'Automatic defrost system.',
+                            capacity: 'Capacities optimized for display case applications.',
+                            test: 'Performance tests have been performed under display case conditions.'
+                        }
+                    },
+                    {
+                        title: 'Spare Parts and Accessories',
+                        specs: {
+                            parts: 'Original spare parts, filters and system accessories.',
+                            stock: 'Fast delivery with wide stock capacity.',
+                            quality: 'OEM quality parts, compliant with international standards.',
+                            service: 'Technical consultancy and after-sales support services.'
+                        }
+                    }
+                ]
+            },
+            ar: {
+                products: [
+                    {
+                        title: 'مكثف سلسلة RK-G',
+                        specs: {
+                            بطارية: 'مكثفات سلسلة RK التجارية بأنابيب نحاسية مصممة للعمل في الظروف البيئية الخارجية والداخلية. مُصنعة بقطر أنبوب 3/8 بوصة و5/16 بوصة، سماكة جدار 0.35 مم، خيارات أنبوب مزخرف وأملس في ترتيب متداخل مع جامعات نحاسية.',
+                            خزانة: 'خزانات مكثفات سلسلة RK التجارية مُصنعة من الفولاذ المجلفن المقاوم للظروف الجوية المختلفة.',
+                            مروحة: 'تستخدم مكثفات سلسلة RK التجارية مراوح Ø200 وØ250 وØ300 وØ350 وØ400 وØ450 وØ500 مم بسرعة 1400 أو 900 دورة في الدقيقة.',
+                            سعة: 'تُحسب السعات وفقاً للمراوح الأوروبية تحت ظروف dT=15K لغاز R404A مع معايير EN 328.',
+                            اختبار: 'تُختبر مكثفات سلسلة RK التجارية عند 40 بار وتُشحن بالنيتروجين عند 6 بار.'
+                        }
+                    },
+                    {
+                        title: 'مكثف سلسلة RK-S',
+                        specs: {
+                            بطارية: 'مكثفات سلسلة RK التجارية بأنابيب نحاسية مصممة للعمل في الظروف البيئية الخارجية والداخلية.',
+                            خزانة: 'خزانات مكثفات سلسلة RK التجارية مُصنعة من الفولاذ المجلفن المقاوم للظروف الجوية المختلفة.',
+                            مروحة: 'تستخدم مكثفات سلسلة RK التجارية مراوح بأحجام مختلفة بسرعة 1400 أو 900 دورة في الدقيقة.',
+                            سعة: 'تُحسب السعات وفقاً للمراوح الأوروبية تحت ظروف dT=15K لغاز R404A مع معايير EN 328.',
+                            اختبار: 'تُختبر مكثفات سلسلة RK التجارية عند 40 بار وتُشحن بالنيتروجين عند 6 بار.'
+                        }
+                    },
+                    {
+                        title: 'مكثف السلسلة الخاصة RK',
+                        specs: {
+                            بطارية: 'مكثفات سلسلة RK التجارية بأنابيب نحاسية مُصنعة بتصميم خاص.',
+                            خزانة: 'خزانات المكثفات من السلسلة الخاصة مصممة وفقاً لاحتياجات العملاء.',
+                            مروحة: 'يتم تحقيق أداء عالي مع خيارات مراوح خاصة.',
+                            سعة: 'يتم تحسين السعة بحسابات خاصة.',
+                            اختبار: 'تُطبق إجراءات اختبار خاصة.'
+                        }
+                    },
+                    {
+                        title: 'مكثف بخزانة RH',
+                        specs: {
+                            بطارية: 'مكثفات سلسلة RH بخزانة مصممة للكفاءة العالية.',
+                            خزانة: 'يتم ضمان الاستخدام طويل الأمد مع هيكل خزانة متين.',
+                            مروحة: 'تُستخدم تقنية مراوح صامتة.',
+                            سعة: 'خيارات سعة عالية متاحة.',
+                            اختبار: 'يتم ضمان الموثوقية مع اختبارات الجودة.'
+                        }
+                    },
+                    {
+                        title: 'مكثف بخزانة Ren M Box',
+                        specs: {
+                            بطارية: 'سلسلة M Box تقدم أداء عالي مع تصميم مدمج.',
+                            خزانة: 'يتم توفير تجميع سهل مع هيكل خزانة معياري.',
+                            مروحة: 'تُستخدم محركات مراوح موفرة للطاقة.',
+                            سعة: 'يتم تقديم نسبة مثلى للسعة/الحجم.',
+                            اختبار: 'تُطبق إجراءات اختبار شاملة.'
+                        }
+                    },
+                    {
+                        title: 'مكثف بخزانة Ren S Box',
+                        specs: {
+                            بطارية: 'سلسلة S Box مثالية للتطبيقات القياسية.',
+                            خزانة: 'منطقة تطبيق واسعة مع أبعاد خزانة قياسية.',
+                            مروحة: 'تُستخدم تقنية مراوح موثوقة.',
+                            سعة: 'خيارات سعة متنوعة متاحة.',
+                            اختبار: 'تُطبق إجراءات اختبار قياسية.'
+                        }
+                    },
+                    {
+                        title: 'مكثف بخزانة Ren H Box',
+                        specs: {
+                            بطارية: 'سلسلة H Box مصممة لتطبيقات السعة العالية.',
+                            خزانة: 'أداء عالي مع خزانات كبيرة السعة.',
+                            مروحة: 'تُستخدم أنظمة مراوح عالية التدفق.',
+                            سعة: 'مثالية لتطبيقات السعة الكبيرة.',
+                            اختبار: 'تُجرى اختبارات ضغط عالي.'
+                        }
+                    },
+                    {
+                        title: 'مبخرات الغرف الباردة',
+                        specs: {
+                            بطارية: 'مبخرات سلسلة RSC مصممة خصيصاً لتطبيقات الغرف الباردة.',
+                            خزانة: 'هيكل خزانة صحي ومتين.',
+                            مروحة: 'مراوح مبخر صامتة.',
+                            إزالة_الجليد: 'إزالة جليد تلقائية مع نظام إزالة الجليد الكهربائي.',
+                            سعة: 'سعات مناسبة لأحجام غرف باردة مختلفة.',
+                            اختبار: 'مُختبرة تحت ظروف الغرف الباردة.'
+                        }
+                    },
+                    {
+                        title: 'مبخرات نوع السقف',
+                        specs: {
+                            بطارية: 'مبخرات سلسلة RYE نوع السقف لها تصميم مدمج.',
+                            خزانة: 'تصميم خاص مناسب لتركيب السقف.',
+                            مروحة: 'تصميم مروحة منخفض المظهر الجانبي.',
+                            إزالة_الجليد: 'نظام إزالة جليد متكامل.',
+                            سعة: 'سعات محسنة لتركيب السقف.',
+                            اختبار: 'مُختبرة تحت ظروف تركيب السقف.'
+                        }
+                    },
+                    {
+                        title: 'مبخرات سقف بخزانة بلاستيكية',
+                        specs: {
+                            بطارية: 'سلسلة RNK & RNKY لها هيكل خفيف الوزن مع خزانة بلاستيكية.',
+                            خزانة: 'خزانة حقن بلاستيكية غير قابلة للكسر.',
+                            مروحة: 'تصميم مروحة مدمج.',
+                            سعة: 'مثالية لتطبيقات صغيرة ومتوسطة الحجم.',
+                            اختبار: 'تم إجراء اختبارات متانة الخزانة البلاستيكية.'
+                        }
+                    },
+                    {
+                        title: 'مبردات العرض',
+                        specs: {
+                            بطارية: 'مبردات عرض سلسلة RKF مصممة لصناديق العرض التجارية.',
+                            خزانة: 'تصميم خزانة مدمج وجمالي.',
+                            مروحة: 'مراوح صغيرة الحجم صامتة.',
+                            إزالة_الجليد: 'نظام إزالة جليد تلقائي.',
+                            سعة: 'سعات محسنة لتطبيقات صناديق العرض.',
+                            اختبار: 'تم إجراء اختبارات أداء تحت ظروف صناديق العرض.'
+                        }
+                    },
+                    {
+                        title: 'قطع الغيار والإكسسوارات',
+                        specs: {
+                            قطع: 'قطع غيار أصلية، مرشحات وإكسسوارات النظام.',
+                            مخزون: 'توصيل سريع مع سعة مخزون واسعة.',
+                            جودة: 'قطع بجودة OEM، متوافقة مع المعايير الدولية.',
+                            خدمة: 'خدمات الاستشارة التقنية ودعم ما بعد البيع.'
+                        }
+                    }
+                ]
+            }
+        };
+
         // DİNAMİK SLIDER RESİMLERİ
         const sliderImages = [
             'RK-G-Serisi-Kondenser.jpg',
@@ -1234,149 +2080,122 @@
             'resim11.png'
         ];
 
-        // DİNAMİK ÜRÜNLER - Yeni ürün formatı
-        const products = [
-            {
-                image: 'RK-G-Serisi-Kondenser.jpg', // Kondenser resmi
-                title: 'RK-G Serisi Kondenser',
-                specs: {
-                    batarya: 'Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8", 5/16\'\' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.',
-                    kabin: 'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşı dayanımı olan galvaniz çelikten üretilmektedir. 8m² ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.',
-                    fan: 'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.',
-                    kapasite: 'Kapasiteler Avrupa fanlarına göre dT=15K şartında R404A gazı için EN 328 Standartları ile hesaplanmıştır.',
-                    test: 'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
-                }
-            },
-            {
-                image: 'RK-S-Serisi-Kondenser.jpg',
-                title: 'RK-S Serisi Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:'RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşıdayanımı olan galvaniz çelikten üretilmektedir. 8m2 ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.',
-                    Fan:'RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.',
-                    Kapasite:'Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.',
-                    Test:'RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir.'
-                }
-            },
-            {
-                image: 'RK-Ozel-Seri-Kondenser.jpg',
-                title: 'RK Özel Seri Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu RK Serisi Ticari Tip Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1-3 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"RK Serisi Ticari Tip Kondenser kabinleri, değişik hava koşullarına karşıdayanımı olan galvaniz çelikten üretilmektedir. 8m2 ve üzeri kondenserler RAL 9016 Elektrostatik toz boya ile boyanmaktadır.",
-                    Fan:"RK Serisi Ticari Tip Kondenserlerde Ø200, Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RK Serisi Ticari Tip Kondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'RH-Kabinli-Kondenser.png',
-                title: 'RH Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Ren-M-Box-Kabinli-Kondenser.jpg',
-                title: 'Ren M Box Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Ren-S-Box-Kabinli-Kondenser.jpg',
-                title: 'Ren S Box Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Ren-H-Box-Kabinli-Kondenser.jpg',
-                title: 'Ren H Box Kabinli Kondenser',
-                specs: {
-                    Batarya:"Bakır borulu REN-BOX Serisi Split Tip Kabinli Kondenserler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8”, 5/16'' boru çapında, 0,35 mm et kalınlığında, yivli ve düz boru seçenekleri ile şaşırtmalı dizilimde ve bakır kollektörlü olarak üretilmektedir. Dalgalı ve patlatmalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 2,1 mm aralığında ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır.",
-                    Kabin:"REN-BOX Serisi Split Tip KabinliKondenser kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"REN-BOX Serisi Split Tip KabinliKondenserlerde Ø350, Ø400, Ø450, Ø500 mm 1400 rpm veya 900 rpm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleriuygulanmaktadır. Çalışma sıcaklığı aralığı -40/+50 °C dir.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre dT=15K şartında R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"REN-BOX Serisi Split Tip KabinliKondenserler 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Soguk-Oda-Evaporatorleri.jpg',
-                title: 'Soğuk Oda Evaporatörleri',
-                specs: {
-                    Batarya:"Bakır borulu RSC Serisi Ticari Oda Soğutucuları dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 1/2” boru çapında ve 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 6-8 mm ve kalıp geometrisi 40x34,64 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RSC Serisi Ticari Oda Soğutucularıın kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"RSC Serisi Ticari Oda Soğutucularında Ø250, Ø300, Ø350, Ø400, Ø450, Ø500 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RSC Serisi Standart Oda Soğutucuları 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Tavan-Tipi-Evaporatorler.jpg',
-                title: 'Tavan Tipi Evaporatörler',
-                specs: {
-                    Batarya:"Bakır borulu RYE Serileri Tavan Tipi Evaporatörler dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 1/2” boru çapında ve 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 6-8 mm ve kalıp geometrisi 40x34,64 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RYE Serileri Tavan Tipi Evaporatörlerinin kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"RYE Serileri Tavan Tipi Evaporatörlerinde Ø300, Ø350 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RYE Serileri Tavan Tipi Evaporatörleri 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-                }
-            },
-            {
-                image: 'Plastik-Kabinli-Tavan-Tipi-Evaporatorler.jpg',
-                title: 'Plastik Kabinli Tavan Tipi Evaporatörler',
-                specs: {
-                    
-                    Batarya:"KARAMAN (TAVAN) TİPİ EVAPORATÖRLER'de; bakır borulu RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörleri dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8 inç ve 1/2 boru çapında, 0,35 mm et kalınlığında, şaşırtmalı dizilimde üretilmektedir. Dalgalı yuzeye sahip aluminyum lamel kullanılmaktadır. Lamel aralığı 4-5 mm ve kalıp geometrisi 40x34,64 mm, 25x21,65 olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RNK & RNKY Serileri Tavan Tipi Evaporatörlerinin kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir. Karaman soğutucularımız kırılmaz plastik enjeksiyon baskı ile üretilmiştir.",
-                    Fan:"RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörlerde Ø200, Ø250 mm. fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RNK & RNKY Serileri Plastik Tavan Tipi Evaporatörlerleri 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-
-                }
-            },
-            {
-                image: 'Vitrin-Sogutuculari.jpg',
-                title: 'Vitrin Soğutucuları',
-                specs: {
-                    
-                    Batarya:"Bakır borulu RKF Serisi Vitrin Soğutucuları dış ve iç ortam koşullarında çalışmaya uygun şekilde tasarlanmıştır. 3/8“ boru çapında ve 0,35 mm et kalınlığında ve şaşırtmalı dizilimde üretilmektedir. Dalgalı yüzeye sahip alüminyum lamel kullanılmaktadır. Lamel aralığı 4 mm ve kalıp geometrisi 25x21,65 mm olarak tasarlanmıştır. Bataryalarda kullanılan ayna sacları bakır boruları korumak amacıyla alüminyumdan üretilmektedir. Soğutucu Akışkan Distribütörü ve Bakır Kollektör kullanılmaktadır.",
-                    Kabin:"RKF Serisi Vitrin Soğutucuları kabinleri, değişik hava koşullarına karşı dayanımı olan RAL 9016 Elektrostatik toz boya ile boyanarak galvaniz çelikten üretilmektedir.",
-                    Fan:"RKF Serisi Vitrin Soğutucuları Ø12x12 mm fanlar kullanılmaktadır. İsteğe bağlı fan model değişiklikleri uygulanmaktadır.",
-                    Defrost:"İsteğe bağlı E1 veya E2 elektrik defrost uygulaması yapılmaktadır.",
-                    Kapasite:"Kapasiteler Avrupa fanlara göre R404A gaz için EN 328 Standartları ile hesaplanmıştır.",
-                    Test:"RKF Serisi Vitrin Soğutucuları 40 bar ile test edilip 6 bar azot ile sevk edilmektedir."
-
-                }
-            },
-            {
-                image: 'resim11.png',
-                title: 'Yedek Parça ve Aksesuar',
-                specs: {
-                    parca: 'Orijinal yedek parçalar, filtreler ve sistem aksesuarları. Tüm marka ve modeller için uyumlu parça tedariki sağlanır.',
-                    stok: 'Geniş stok kapasitesi ile hızlı teslimat.',
-                    kalite: 'Orijinal ekipman üreticisi (OEM) kalitesinde parçalar, uluslararası standartlara uygun sertifikalı ürünlerdir.',
-                    hizmet: 'Teknik danışmanlık, parça seçimi, montaj kılavuzu ve satış sonrası destek hizmetleri kapsamlıdır.'
-                }
-            }
-        ];
-
         let currentOpenSpec = null;
+        let currentLanguage = 'tr'; // Varsayılan dil
+
+        // DİL YÖNETİMİ
+        function initializeLanguage() {
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+            }
+            updateLanguageSelector();
+            translatePage();
+            updateDirection();
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            updateLanguageSelector();
+            translatePage();
+            updateDirection();
+            recreateProducts(); // Ürünleri yeniden oluştur
+            
+            // Dil seçicisini kapat
+            document.getElementById('languageOptions').classList.remove('active');
+        }
+
+        function updateLanguageSelector() {
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            const options = document.querySelectorAll('.language-option');
+            
+            // Mevcut dili güncelle
+            switch(currentLanguage) {
+                case 'tr':
+                    currentFlag.className = 'flag-icon flag-tr';
+                    currentFlag.textContent = 'TR';
+                    currentLang.textContent = 'Türkçe';
+                    break;
+                case 'en':
+                    currentFlag.className = 'flag-icon flag-en';
+                    currentFlag.textContent = 'EN';
+                    currentLang.textContent = 'English';
+                    break;
+                case 'ar':
+                    currentFlag.className = 'flag-icon flag-ar';
+                    currentFlag.textContent = 'ع';
+                    currentLang.textContent = 'العربية';
+                    break;
+            }
+            
+            // Seçeneklerdeki aktif durumu güncelle
+            options.forEach(option => {
+                option.classList.remove('active');
+                if (option.onclick.toString().includes(`'${currentLanguage}'`)) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function updateDirection() {
+            if (currentLanguage === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+
+        function translatePage() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    if (element.innerHTML.includes('<br>')) {
+                        element.innerHTML = translations[currentLanguage][key];
+                    } else {
+                        element.textContent = translations[currentLanguage][key];
+                    }
+                }
+            });
+
+            // Title etiketlerini güncelle
+            const titleElements = document.querySelectorAll('[data-translate-title]');
+            titleElements.forEach(element => {
+                const key = element.getAttribute('data-translate-title');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.setAttribute('title', translations[currentLanguage][key]);
+                }
+            });
+
+            // Sayfa başlığını güncelle
+            updatePageTitle();
+        }
+
+        function updatePageTitle() {
+            const titles = {
+                tr: 'BAS COLD SOĞUTMA - Profesyonel Soğutma Çözümleri',
+                en: 'BAS COLD COOLING - Professional Cooling Solutions',
+                ar: 'باس كولد للتبريد - حلول التبريد المهنية'
+            };
+            document.title = titles[currentLanguage];
+        }
+
+        function toggleLanguageOptions() {
+            const options = document.getElementById('languageOptions');
+            options.classList.toggle('active');
+        }
+
+        // Dil seçicisi dışında tıklanınca kapat
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.getElementById('languageSelector');
+            if (!languageSelector.contains(event.target)) {
+                document.getElementById('languageOptions').classList.remove('active');
+            }
+        });
 
         // Slider oluşturma fonksiyonu
         function createSlider() {
@@ -1401,19 +2220,39 @@
         // Ürünler oluşturma fonksiyonu
         function createProducts() {
             const productsContainer = document.getElementById('productsGrid');
+            const currentProducts = productTranslations[currentLanguage].products;
+            const images = [
+                'RK-G-Serisi-Kondenser.jpg',
+                'RK-S-Serisi-Kondenser.jpg',
+                'RK-Ozel-Seri-Kondenser.jpg',
+                'RH-Kabinli-Kondenser.png',
+                'Ren-M-Box-Kabinli-Kondenser.jpg',
+                'Ren-S-Box-Kabinli-Kondenser.jpg',
+                'Ren-H-Box-Kabinli-Kondenser.jpg',
+                'Soguk-Oda-Evaporatorleri.jpg',
+                'Tavan-Tipi-Evaporatorler.jpg',
+                'Plastik-Kabinli-Tavan-Tipi-Evaporatorler.jpg',
+                'Vitrin-Sogutuculari.jpg',
+                'resim11.png'
+            ];
+            
             let productsHTML = '';
 
-            products.forEach((product, index) => {
+            currentProducts.forEach((product, index) => {
+                const specsLabel = currentLanguage === 'ar' ? 'المواصفات التقنية' : 
+                                currentLanguage === 'en' ? 'Technical Specifications' : 
+                                'Teknik Özellikler';
+                
                 productsHTML += `
                     <div class="product-card loading">
                         <div class="product-image">
-                            <img src="${product.image}" alt="${product.title}">
+                            <img src="${images[index]}" alt="${product.title}">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">${product.title}</h3>
                             <div class="product-specs">
                                 <div class="specs-header" onclick="toggleSpecs(${index})">
-                                    <span>Teknik Özellikler</span>
+                                    <span>${specsLabel}</span>
                                     <i class="fas fa-chevron-down" id="icon-${index}"></i>
                                 </div>
                                 <div class="specs-content" id="specs-${index}">
@@ -1426,6 +2265,12 @@
             });
 
             productsContainer.innerHTML = productsHTML;
+        }
+
+        // Ürünleri yeniden oluştur
+        function recreateProducts() {
+            createProducts();
+            initializeObserver(); // Observer'ı yeniden başlat
         }
 
         // Teknik özellikler HTML'i oluşturma
@@ -1443,12 +2288,11 @@
             return html;
         }
 
-        // Teknik özellikler toggle fonksiyonu - GÜNCEL VERSİYON
+        // Teknik özellikler toggle fonksiyonu
         function toggleSpecs(index) {
             const specsContent = document.getElementById(`specs-${index}`);
             const icon = document.getElementById(`icon-${index}`);
             
-            // Eğer başka bir spec açıksa kapat
             if (currentOpenSpec !== null && currentOpenSpec !== index) {
                 const prevSpecs = document.getElementById(`specs-${currentOpenSpec}`);
                 const prevIcon = document.getElementById(`icon-${currentOpenSpec}`);
@@ -1457,21 +2301,18 @@
                 prevIcon.style.transform = 'rotate(0deg)';
             }
             
-            // Mevcut spec'i toggle et
             if (specsContent.classList.contains('active')) {
                 specsContent.classList.remove('active');
                 specsContent.style.maxHeight = '0px';
                 icon.style.transform = 'rotate(0deg)';
                 currentOpenSpec = null;
             } else {
-                // Önce active class'ı ekle (padding'i aktive et)
                 specsContent.classList.add('active');
                 
-                // Bir sonraki frame'de height hesapla (padding uygulandıktan sonra)
                 requestAnimationFrame(() => {
                     const fullHeight = specsContent.scrollHeight;
-                    const extraPadding = 40; // Ekstra güvenlik payı
-                    const finalHeight = fullHeight + extraPadding; // 2 satır kadar ekstra alan
+                    const extraPadding = 40;
+                    const finalHeight = fullHeight + extraPadding;
                     specsContent.style.maxHeight = finalHeight + 'px';
                 });
                 
@@ -1479,15 +2320,6 @@
                 currentOpenSpec = index;
             }
         }
-
-        // Sayfa yüklendiğinde slider ve ürünleri oluştur
-        document.addEventListener('DOMContentLoaded', function() {
-            createSlider();
-            createProducts();
-            
-            // Loading animasyonları için observer'ı yeniden başlat
-            initializeObserver();
-        });
 
         // Contact Modal Functions
         function openContactModal(type) {
@@ -1499,21 +2331,38 @@
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
             
+            const modalTitles = {
+                tr: {
+                    phone: 'Telefon ile Ara',
+                    whatsapp: 'WhatsApp ile Mesaj Gönder',
+                    email: 'E-posta Gönder'
+                },
+                en: {
+                    phone: 'Call by Phone',
+                    whatsapp: 'Send WhatsApp Message',
+                    email: 'Send Email'
+                },
+                ar: {
+                    phone: 'اتصل بالهاتف',
+                    whatsapp: 'أرسل رسالة واتساب',
+                    email: 'أرسل بريد إلكتروني'
+                }
+            };
+            
+            modalTitle.textContent = modalTitles[currentLanguage][type];
+            
             if (type === 'phone') {
-                modalTitle.textContent = 'Telefon ile Ara';
                 turkeyOption.href = 'tel:+905413067734';
                 ukOption.href = 'tel:+447847795309';
             } else if (type === 'whatsapp') {
-                modalTitle.textContent = 'WhatsApp ile Mesaj Gönder';
                 turkeyOption.href = 'https://wa.me/905413067734';
                 ukOption.href = 'https://wa.me/447847795309';
             } else if (type === 'email') {
-                modalTitle.textContent = 'E-posta Gönder';
                 turkeyOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20Merkez%20Ofis';
                 ukOption.href = 'mailto:info@bascold.com?subject=İletişim%20-%20İngiltere%20Şubesi';
                 
-                document.querySelector('#turkeyOption .option-details').textContent = 'info@bascold.com';
-                document.querySelector('#ukOption .option-details').textContent = 'info@bascold.com';
+                document.getElementById('turkeyDetails').textContent = 'info@bascold.com';
+                document.getElementById('ukDetails').textContent = 'info@bascold.com';
             }
         }
 
@@ -1522,8 +2371,8 @@
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
             
-            document.querySelector('#turkeyOption .option-details').textContent = '+90 541 306 77 34';
-            document.querySelector('#ukOption .option-details').textContent = '+44 7847 795309';
+            document.getElementById('turkeyDetails').textContent = '+90 541 306 77 34';
+            document.getElementById('ukDetails').textContent = '+44 7847 795309';
         }
 
         // Close modal when clicking outside
@@ -1677,6 +2526,7 @@
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 closeContactModal();
+                document.getElementById('languageOptions').classList.remove('active');
             }
         });
 
@@ -1684,11 +2534,21 @@
         window.addEventListener('beforeprint', () => {
             document.querySelector('.fixed-contact').style.display = 'none';
             document.querySelector('.scroll-top').style.display = 'none';
+            document.querySelector('.language-selector').style.display = 'none';
         });
 
         window.addEventListener('afterprint', () => {
             document.querySelector('.fixed-contact').style.display = 'flex';
             document.querySelector('.scroll-top').style.display = 'block';
+            document.querySelector('.language-selector').style.display = 'block';
+        });
+
+        // Sayfa yüklendiğinde tüm işlevleri başlat
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage(); // Dil sistemi başlatılır
+            createSlider();
+            createProducts();
+            initializeObserver();
         });
     </script>
 </body>
