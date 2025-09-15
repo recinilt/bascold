@@ -417,7 +417,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .service-card:hover {
@@ -440,162 +439,6 @@
 
         .service-card p {
             color: #64748b;
-            margin-bottom: 1rem;
-        }
-
-        /* Service Example Button */
-        .service-example-btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #ff6b35;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-            cursor: pointer;
-        }
-
-        .service-example-btn:hover {
-            background: #e55a2b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-        }
-
-        /* Full Screen Slider Modal */
-        .fullscreen-slider-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
-            backdrop-filter: blur(5px);
-        }
-
-        .fullscreen-slider-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .fullscreen-slider {
-            position: relative;
-            width: 90%;
-            height: 80%;
-            max-width: 1200px;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .fullscreen-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .fullscreen-slide.active {
-            opacity: 1;
-        }
-
-        .fullscreen-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        /* Slider Navigation */
-        .fullscreen-slider-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10001;
-        }
-
-        .fullscreen-nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .fullscreen-nav-dot.active {
-            background: white;
-        }
-
-        .fullscreen-slider-arrows {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 2rem;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10001;
-        }
-
-        .fullscreen-slider-arrows:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .fullscreen-prev {
-            left: 20px;
-        }
-
-        .fullscreen-next {
-            right: 20px;
-        }
-
-        .fullscreen-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10001;
-        }
-
-        .fullscreen-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
         }
 
         /* Products Section */
@@ -1354,33 +1197,6 @@
                 font-size: 1rem !important;
                 word-wrap: break-word;
             }
-
-            .fullscreen-slider {
-                width: 95%;
-                height: 70%;
-            }
-
-            .fullscreen-slider-arrows {
-                font-size: 1.5rem;
-                width: 45px;
-                height: 45px;
-            }
-
-            .fullscreen-prev {
-                left: 10px;
-            }
-
-            .fullscreen-next {
-                right: 10px;
-            }
-
-            .fullscreen-close {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1557,7 +1373,6 @@
                     </div>
                     <h3 data-translate="serviceTitle4">Defrost Rezistansları</h3>
                     <p data-translate="serviceDesc4">Soğuk oda ve evaporatör sistemleri için yüksek kaliteli defrost rezistansları ve otomatik buzçözme çözümleri</p>
-                    <div class="service-example-btn" onclick="openProjectSlider('defrost')" data-translate="examplesBtn">Örnekler</div>
                 </div>
 
                 <div class="service-card loading">
@@ -1581,7 +1396,6 @@
                     </div>
                     <h3 data-translate="serviceTitle7">Proje Danışmanlığı</h3>
                     <p data-translate="serviceDesc7">Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı</p>
-                    <div class="service-example-btn" onclick="openProjectSlider('project')" data-translate="examplesBtn">Örnekler</div>
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
@@ -1601,27 +1415,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Full Screen Slider Modal -->
-    <div class="fullscreen-slider-modal" id="fullscreenSliderModal">
-        <div class="fullscreen-slider-content">
-            <button class="fullscreen-close" onclick="closeProjectSlider()">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="fullscreen-slider" id="fullscreenSlider">
-                <!-- Slides will be dynamically generated here -->
-            </div>
-            
-            <button class="fullscreen-slider-arrows fullscreen-prev" onclick="previousProjectSlide()">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <button class="fullscreen-slider-arrows fullscreen-next" onclick="nextProjectSlide()">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </div>
 
     <!-- Products Section -->
     <section class="section products" id="products">
@@ -1853,9 +1646,6 @@
                 serviceTitle9: "Kalite Garantisi",
                 serviceDesc9: "CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları",
                 
-                // Examples Button
-                examplesBtn: "Örnekler",
-                
                 // Products Section
                 productsTitle: "Ürünlerimiz",
                 techSpecs: "Teknik Özellikler",
@@ -1943,9 +1733,6 @@
                 serviceTitle9: "Quality Guarantee",
                 serviceDesc9: "CE certified products, ISO standards and international quality certificates",
                 
-                // Examples Button
-                examplesBtn: "Examples",
-                
                 // Products Section
                 productsTitle: "Our Products",
                 techSpecs: "Technical Specifications",
@@ -2032,9 +1819,6 @@
                 serviceDesc8: "أنظمة تبريد خاصة لصناعة الأغذية والكيماويات والأدوية وقطاعات الصناعة الأخرى",
                 serviceTitle9: "ضمان الجودة",
                 serviceDesc9: "منتجات معتمدة CE ومعايير ISO وشهادات الجودة الدولية",
-                
-                // Examples Button
-                examplesBtn: "أمثلة",
                 
                 // Products Section
                 productsTitle: "منتجاتنا",
@@ -2484,13 +2268,6 @@
                     }
                 ]
             }
-        
-        };
-
-        // PROJE RESİMLERİ
-        const projectImages = {
-            project: ['proje1.jpg', 'proje2.jpg', 'proje3.jpg'],
-            defrost: ['defrostr1.jpg', 'defrostr2.jpg']
         };
 
         // DİNAMİK SLIDER RESİMLERİ
@@ -2502,8 +2279,6 @@
 
         let currentOpenSpec = null;
         let currentLanguage = 'en'; // Varsayılan dil
-        let currentProjectSliderIndex = 0;
-        let currentProjectSliderType = '';
 
         
         // DİL YÖNETİMİ
@@ -2621,130 +2396,6 @@
             const languageSelector = document.getElementById('languageSelector');
             if (!languageSelector.contains(event.target)) {
                 document.getElementById('languageOptions').classList.remove('active');
-            }
-        });
-
-        // PROJE SLIDER FONKSİYONLARI
-        function openProjectSlider(type) {
-            currentProjectSliderType = type;
-            currentProjectSliderIndex = 0;
-            
-            const modal = document.getElementById('fullscreenSliderModal');
-            const sliderContainer = document.getElementById('fullscreenSlider');
-            
-            // Slider içeriğini oluştur
-            createProjectSlider(type);
-            
-            // Modal'ı göster
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            
-            // İlk slide'ı göster
-            showProjectSlide(0);
-            
-            // Otomatik geçişi başlat
-            startProjectSliderAutoplay();
-        }
-
-        function createProjectSlider(type) {
-            const sliderContainer = document.getElementById('fullscreenSlider');
-            const images = projectImages[type] || [];
-            
-            let sliderHTML = '';
-            let navHTML = '<div class="fullscreen-slider-nav">';
-
-            images.forEach((image, index) => {
-                const activeClass = index === 0 ? 'active' : '';
-                sliderHTML += `
-                    <div class="fullscreen-slide ${activeClass}">
-                        <img src="${image}" alt="${type} Image ${index + 1}">
-                    </div>
-                `;
-                navHTML += `<span class="fullscreen-nav-dot ${activeClass}" onclick="currentProjectSlide(${index})"></span>`;
-            });
-
-            navHTML += '</div>';
-            sliderContainer.innerHTML = sliderHTML + navHTML;
-        }
-
-        function showProjectSlide(index) {
-            const slides = document.querySelectorAll('.fullscreen-slide');
-            const dots = document.querySelectorAll('.fullscreen-nav-dot');
-            
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function currentProjectSlide(index) {
-            currentProjectSliderIndex = index;
-            showProjectSlide(currentProjectSliderIndex);
-            resetProjectSliderAutoplay();
-        }
-
-        function nextProjectSlide() {
-            const totalSlides = projectImages[currentProjectSliderType]?.length || 0;
-            currentProjectSliderIndex = (currentProjectSliderIndex + 1) % totalSlides;
-            showProjectSlide(currentProjectSliderIndex);
-            resetProjectSliderAutoplay();
-        }
-
-        function previousProjectSlide() {
-            const totalSlides = projectImages[currentProjectSliderType]?.length || 0;
-            currentProjectSliderIndex = (currentProjectSliderIndex - 1 + totalSlides) % totalSlides;
-            showProjectSlide(currentProjectSliderIndex);
-            resetProjectSliderAutoplay();
-        }
-
-        function closeProjectSlider() {
-            const modal = document.getElementById('fullscreenSliderModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            stopProjectSliderAutoplay();
-        }
-
-        // Otomatik geçiş fonksiyonları
-        let projectSliderInterval;
-
-        function startProjectSliderAutoplay() {
-            projectSliderInterval = setInterval(() => {
-                nextProjectSlide();
-            }, 4000); // 4 saniyede bir geçiş
-        }
-
-        function stopProjectSliderAutoplay() {
-            if (projectSliderInterval) {
-                clearInterval(projectSliderInterval);
-                projectSliderInterval = null;
-            }
-        }
-
-        function resetProjectSliderAutoplay() {
-            stopProjectSliderAutoplay();
-            startProjectSliderAutoplay();
-        }
-
-        // Klavye kontrolleri
-        document.addEventListener('keydown', function(e) {
-            const modal = document.getElementById('fullscreenSliderModal');
-            if (modal.style.display === 'block') {
-                if (e.key === 'ArrowRight') {
-                    nextProjectSlide();
-                } else if (e.key === 'ArrowLeft') {
-                    previousProjectSlide();
-                } else if (e.key === 'Escape') {
-                    closeProjectSlider();
-                }
-            }
-        });
-
-        // Modal dışında tıklanınca kapat
-        document.getElementById('fullscreenSliderModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeProjectSlider();
             }
         });
 
