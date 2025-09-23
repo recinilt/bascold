@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASCOLD SOĞUTMA - Profesyonel Soğutma Çözümleri</title>
+    <meta name="description" content="Profesyonel soğutma sistemleri, evaporatör, kondenser ve soğutma ekipmanları konusunda uzman şirket.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo4.png">
+    <link rel="shortcut icon" type="image/x-icon" href="logo4.png">
+    <link rel="apple-touch-icon" href="logo4.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector" id="languageSelector">
+        <div class="language-toggle" onclick="toggleLanguageOptions()">
+            <span class="flag-icon flag-tr" id="currentFlag">TR</span>
+            <span id="currentLang">Türkçe</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="language-options" id="languageOptions">
+            <div class="language-option active" onclick="changeLanguage('tr')">
+                <span class="flag-icon flag-tr">TR</span>
+                <span>Türkçe</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('en')">
+                <span class="flag-icon flag-en">EN</span>
+                <span>English</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('ar')">
+                <span class="flag-icon flag-ar">ع</span>
+                <span>العربية</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <img src="logo4.png" alt="BASCOLD SOĞUTMA" class="logo-image">
+            </a>
+            <h1><a href="#home" class="logo" data-translate="companyName">BASCOLD SOĞUTMA</a></h1>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" data-translate="navHome">Ana Sayfa</a></li>
+                <li><a href="#about" data-translate="navAbout">Hakkımızda</a></li>
+                <li><a href="#services" data-translate="navServices">Hizmetler</a></li>
+                <li><a href="#products" data-translate="navProducts">Ürünler</a></li>
+                <li><a href="#contact" data-translate="navContact">İletişim</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-translate="heroTitle">Profesyonel Soğutma Çözümleri</h1>
+            <h3 data-translate="heroSubtitle">BASCOLD ENDÜSTRİYEL SOĞUTMA SİSTEMLERİ İTHALAT İHRACAT LTD. ŞTİ.</h3>
+            <p data-translate="heroDescription">10+ Yıllık Tecrübeyle Soğutma Sektöründe Etkili Çözümler</p>
+            <a href="#contact" class="cta-button" data-translate="heroButton">İletişime Geç</a>
+        </div>
+    </section>
+
+    
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 data-translate="aboutTitle">Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text loading">
+                    <p data-translate="aboutText1">BASCOLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir ve enerji verimli soğutma sistemleri sağlamaktayız.</p>
+
+                    <p data-translate="aboutText2">Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun ömürlü kullanım için tasarlanmaktadır.</p>
+
+                    <p data-translate="aboutText3">Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BASCOLD olarak, ürünlerinizin daha hızlı soğutulmasını ve daha uzun süre korunmasını sağlamak için yanınızdayız.</p>
+                </div>
+                <div class="about-image loading">
+                    <img src="resim2.png" alt="Fabrika Görünümü">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Full Screen Slider Modal -->
+    <div class="fullscreen-slider-modal" id="fullscreenSliderModal">
+        <div class="fullscreen-slider-content">
+            <button class="fullscreen-close" onclick="closeProjectSlider()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="fullscreen-slider" id="fullscreenSlider">
+                <!-- Slides will be dynamically generated here -->
+            </div>
+            
+            <button class="fullscreen-slider-arrows fullscreen-prev" onclick="previousProjectSlide()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <button class="fullscreen-slider-arrows fullscreen-next" onclick="nextProjectSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <h2 data-translate="productsTitle">Ürünlerimiz</h2>
+            
+            <!-- Image Slider -->
+            <div class="image-slider" id="imageSlider">
+                <!-- Slider resimler otomatik oluşturulacak -->
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Ürünler otomatik oluşturulacak -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 data-translate="servicesTitle">Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle1">Evaporatör Sistemleri</h3>
+                    <p data-translate="serviceDesc1">Soğuk oda evaporatörleri, endüstriyel evaporatörler ve özel tasarım soğutma çözümleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle2">Kondenser Sistemleri</h3>
+                    <p data-translate="serviceDesc2">Hava soğutmalı, su soğutmalı ve evaporatif kondenser sistemleri ile ısı atım çözümleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i> <!-- İkon değişti -->
+                    </div>
+                    <h3 data-translate="serviceTitle3">Kompresör</h3>
+                    <p data-translate="serviceDesc3">Endüstriyel ve ticari soğutma sistemleri için yüksek performanslı, enerji verimli kompresörler</p>
+                    <div class="service-example-btn" onclick="openProjectSlider('compressor')" data-translate="examplesBtn">Örnekler</div>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle4">Defrost Rezistansları</h3>
+                    <p data-translate="serviceDesc4">Soğuk oda ve evaporatör sistemleri için yüksek kaliteli defrost rezistansları ve otomatik buzçözme çözümleri</p>
+                    <div class="service-example-btn" onclick="openProjectSlider('defrost')" data-translate="examplesBtn">Örnekler</div>
+                </div>
+
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle5">Fan Motorları</h3>
+                    <p data-translate="serviceDesc5">Evaporatör ve kondenser sistemleri için enerji verimli, sessiz çalışan ve uzun ömürlü fan motorları</p>
+                    <div class="service-example-btn" onclick="openProjectSlider('fanMotors')" data-translate="examplesBtn">Örnekler</div>
+                </div>
+
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle6">Soğutucu Akışkan Gazlar</h3>
+                    <p data-translate="serviceDesc6">R134a, R404A, R410A, R407C ve çevre dostu alternatif soğutucu gazların tedariki ve dolum hizmetleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle7">Proje Danışmanlığı</h3>
+                    <p data-translate="serviceDesc7">Mühendislik hizmetleri, sistem tasarımı ve enerji verimliliği danışmanlığı</p>
+                    <div class="service-example-btn" onclick="openProjectSlider('project')" data-translate="examplesBtn">Örnekler</div>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle8">Endüstriyel Çözümler</h3>
+                    <p data-translate="serviceDesc8">Gıda sanayii, kimya, ilaç ve diğer endüstri kolları için özel soğutma sistemleri</p>
+                </div>
+                <div class="service-card loading">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 data-translate="serviceTitle9">Kalite Garantisi</h3>
+                    <p data-translate="serviceDesc9">CE belgeli ürünler, ISO standartları ve uluslararası kalite sertifikaları</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats" id="stats">
+        <div class="container">
+            <h2 data-translate="statsTitle">Rakamlarla BASCOLD</h2>
+            <div class="stats-grid">
+                <div class="stat-item loading">
+                    <h3 data-count="10">0</h3>
+                    <p data-translate="statYears">Yıllık Deneyim</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="1001">0</h3>
+                    <p data-translate="statProjects">Tamamlanan Proje</p>
+                </div>
+                <div class="stat-item loading">
+                    <h3 data-count="1001">0</h3>
+                    <p data-translate="statClients">Mutlu Müşteri</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section - Footer'dan önce -->
+        <section class="partners-section">
+            <div class="container">
+                <h3 data-translate="partnersTitle">İş Ortaklarımız</h3>
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <img src="sanhua-logo.jpg" alt="Sanhua">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="weiguang-logo.jpg" alt="Weiguang Motors & Fans">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="danfoss-logo.jpg" alt="Danfoss">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="sanmu-logo.jpg" alt="Sanmu">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="frascold-logo.jpg" alt="Frascold">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="copeland-logo.jpg" alt="Copeland">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="embraco-logo.jpg" alt="Embraco Aspera">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 data-translate="contactTitle">İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info loading">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-translate="contactOffice">Merkez Ofis</h4>
+                            <p data-translate="contactAddress">Organize Sanayi Bölgesi<br>İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-translate="contactPhone">Telefon</h4>
+                            <p data-translate="contactNumbers">Merkez: +90 541 306 77 34<br>İngiltere: +44 7847 795309</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-translate="contactEmail">E-posta</h4>
+                            <p>info@bascold.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 data-translate="contactHours">Çalışma Saatleri</h4>
+                            <p data-translate="contactSchedule">Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="companyName">BASCOLD SOĞUTMA</h3>
+                <img src="logo4.png" alt="BASCOLD SOĞUTMA" style="height: 150px; margin-bottom: 1rem;"><br>
+                <p data-translate="footerDescription">10+ yıllık deneyimimizle soğutma sektöründe etkili çözüm ortağınız.</p>
+                <div style="margin-top: 1rem;">
+                    <a href="https://www.facebook.com/profile.php?id=61580530034945" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/bascold-cooling-83a246385/" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/bascoldofficial/" style="color: #1e40af; font-size: 1.5rem; margin-right: 1rem;" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@BascoldCooling" style="color: #1e40af; font-size: 1.5rem;" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footerQuickLinks">Hızlı Linkler</h3>
+                <ul>
+                    <li><a href="#home" data-translate="navHome">Ana Sayfa</a></li>
+                    <li><a href="#about" data-translate="navAbout">Hakkımızda</a></li>
+                    <li><a href="#services" data-translate="navServices">Hizmetler</a></li>
+                    <li><a href="#products" data-translate="navProducts">Ürünler</a></li>
+                    <li><a href="#contact" data-translate="navContact">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footerServices">Hizmetlerimiz</h3>
+                <ul>
+                    <li><a href="#" data-translate="serviceTitle1">Evaporatör Sistemleri</a></li>
+                    <li><a href="#" data-translate="serviceTitle2">Kondenser Sistemleri</a></li>
+                    <li><a href="#" data-translate="serviceTitle3">Kompresör</a></li>
+                    <li><a href="#" data-translate="serviceTitle4">Defrost Rezistansları</a></li>
+                    <li><a href="#" data-translate="serviceTitle5">Fan Motorları</a></li>
+                    <li><a href="#" data-translate="serviceTitle6">Soğutucu Akışkan Gazlar</a></li>
+                    <li><a href="#" data-translate="serviceTitle7">Proje Danışmanlığı</a></li>
+                    <li><a href="#" data-translate="serviceTitle8">Endüstriyel Çözümler</a></li>
+                    <li><a href="#" data-translate="serviceTitle9">Kalite Garantisi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footerContactInfo">İletişim Bilgileri</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-translate="footerAddress">Organize Sanayi Bölgesi, İstanbul</span></li>
+                    <li><i class="fas fa-phone"></i> +90 541 306 77 34</li>
+                    <li><i class="fas fa-phone"></i> +44 7847 795309</li>
+                    <li><i class="fas fa-envelope"></i> info@bascold.com</li>
+                    <li><i class="fas fa-globe"></i> www.bascold.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="copyright">&copy; 2024 BASCOLD Soğutma. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+        <div class="contact-btn phone-btn" data-translate-title="callTitle" title="Ara" onclick="openContactModal('phone')">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-btn whatsapp-btn" title="WhatsApp" onclick="openContactModal('whatsapp')">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="contact-btn email-btn" data-translate-title="emailTitle" title="E-posta Gönder" onclick="openContactModal('email')">
+            <i class="fas fa-envelope"></i>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeContactModal()">&times;</button>
+            <div class="modal-header">
+                <h3 id="modalTitle" data-translate="modalTitle">İletişim Seçin</h3>
+                <p id="modalSubtitle" data-translate="modalSubtitle">Hangi ofisimizle iletişime geçmek istiyorsunuz?</p>
+            </div>
+            
+            <a href="#" class="contact-option modal-link" id="turkeyOption">
+                <div class="option-header">
+                    <div class="option-icon turkey-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4 data-translate="turkeyOffice">Merkez Ofis</h4>
+                        <p>Mehtap GENİŞ</p>
+                    </div>
+                </div>
+                <div class="option-details" id="turkeyDetails">+90 541 306 77 34</div>
+            </a>
+
+            <a href="#" class="contact-option modal-link" id="ukOption">
+                <div class="option-header">
+                    <div class="option-icon uk-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4 data-translate="ukOffice">İngiltere Şubesi</h4>
+                        <p>Serap Deniz BAŞ</p>
+                    </div>
+                </div>
+                <div class="option-details" id="ukDetails">+44 7847 795309</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
