@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,33 +13,35 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
             background: #f8fafc;
         }
-
         /* Header */
+        
         .header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(0, 0, 0, 0.95);
+            /* Siyah arka plan */
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
+            /* Beyaz gölge */
             z-index: 1000;
             transition: all 0.3s ease;
         }
-
+        
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -47,7 +50,7 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
@@ -56,40 +59,41 @@
             font-weight: 600;
             font-size: 1.2rem;
         }
-
+        
         .logo-image {
-            height: 50px;
+            height: 60px;
+            /* Daha büyük boyut */
             width: auto;
-            margin-right: 1rem;
             transition: transform 0.3s ease;
         }
-
+        
         .logo-image:hover {
             transform: scale(1.05);
         }
-
+        
         .back-btn {
             display: inline-flex;
             align-items: center;
             padding: 0.8rem 1.5rem;
-            background: #1e40af;
+            background: #3b82f6;
+            /* Mavi arka plan */
             color: white;
             text-decoration: none;
             border-radius: 10px;
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
+        
         .back-btn:hover {
-            background: #1d4ed8;
+            background: #2563eb;
             transform: translateY(-2px);
         }
-
+        
         .back-btn i {
             margin-right: 0.5rem;
         }
-
         /* Language Selector */
+        
         .language-selector {
             position: fixed;
             top: 80px;
@@ -100,7 +104,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-
+        
         .language-toggle {
             padding: 10px 15px;
             cursor: pointer;
@@ -112,20 +116,20 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
+        
         .language-toggle:hover {
             background: #1d4ed8;
         }
-
+        
         .language-options {
             display: none;
             flex-direction: column;
         }
-
+        
         .language-options.active {
             display: flex;
         }
-
+        
         .language-option {
             padding: 10px 15px;
             cursor: pointer;
@@ -136,18 +140,18 @@
             transition: all 0.3s ease;
             font-size: 14px;
         }
-
+        
         .language-option:hover {
             background: #f3f4f6;
             color: #1e40af;
         }
-
+        
         .language-option.active {
             background: #eff6ff;
             color: #1e40af;
             font-weight: 600;
         }
-
+        
         .flag-icon {
             width: 20px;
             height: 15px;
@@ -157,27 +161,38 @@
             align-items: center;
             justify-content: center;
         }
-
-        .flag-tr { background: #e30a17; color: white; }
-        .flag-en { background: #012169; color: white; }
-        .flag-ar { background: #006233; color: white; }
-
+        
+        .flag-tr {
+            background: #e30a17;
+            color: white;
+        }
+        
+        .flag-en {
+            background: #012169;
+            color: white;
+        }
+        
+        .flag-ar {
+            background: #006233;
+            color: white;
+        }
         /* RTL Support */
+        
         body[dir="rtl"] {
             direction: rtl;
         }
-
+        
         body[dir="rtl"] .language-selector {
             right: auto;
             left: 20px;
         }
-
+        
         body[dir="rtl"] .logo-image {
             margin-right: 0;
             margin-left: 1rem;
         }
-
         /* Main Content */
+        
         .main-content {
             margin-top: 100px;
             padding: 2rem 5%;
@@ -185,34 +200,34 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+        
         .gallery-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-
+        
         .gallery-header h1 {
             font-size: 2.5rem;
             font-weight: 700;
             color: #1e40af;
             margin-bottom: 1rem;
         }
-
+        
         .gallery-header p {
             font-size: 1.1rem;
             color: #64748b;
             max-width: 600px;
             margin: 0 auto;
         }
-
         /* Gallery Grid */
+        
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-
+        
         .gallery-item {
             background: white;
             border-radius: 15px;
@@ -221,38 +236,38 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-
+        
         .gallery-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-
+        
         .gallery-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
-
+        
         .gallery-item:hover img {
             transform: scale(1.05);
         }
-
         /* Loading Animation */
+        
         .loading {
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.6s ease forwards;
         }
-
+        
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         /* Modal/Lightbox */
+        
         .lightbox {
             display: none;
             position: fixed;
@@ -264,13 +279,13 @@
             z-index: 9999;
             backdrop-filter: blur(5px);
         }
-
+        
         .lightbox.active {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
+        
         .lightbox-content {
             position: relative;
             max-width: 95%;
@@ -279,7 +294,7 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .lightbox-image {
             max-width: 100%;
             max-height: 100%;
@@ -287,7 +302,7 @@
             border-radius: 10px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
-
+        
         .lightbox-close {
             position: absolute;
             top: 20px;
@@ -305,12 +320,12 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .lightbox-close:hover {
             background: white;
             transform: scale(1.1);
         }
-
+        
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -328,20 +343,20 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .lightbox-nav:hover {
             background: white;
             transform: translateY(-50%) scale(1.1);
         }
-
+        
         .lightbox-prev {
             left: 30px;
         }
-
+        
         .lightbox-next {
             right: 30px;
         }
-
+        
         .lightbox-counter {
             position: absolute;
             bottom: 30px;
@@ -353,62 +368,61 @@
             border-radius: 20px;
             font-weight: 500;
         }
-
         /* Footer */
+        
         .footer {
             background: #1f2937;
             color: white;
             padding: 2rem 5%;
             text-align: center;
         }
-
+        
         .footer p {
             color: #9ca3af;
         }
-
         /* Mobile Responsive */
+        
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem 3%;
             }
-
+            .logo-image {
+                height: 45px;
+                /* Mobilde biraz daha küçük */
+            }
+            .back-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
             .main-content {
                 padding: 2rem 3%;
                 margin-top: 90px;
             }
-
             .gallery-header h1 {
                 font-size: 2rem;
             }
-
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 gap: 1rem;
             }
-
             .gallery-item img {
                 height: 200px;
             }
-
             .language-selector {
                 top: 100px;
                 right: 10px;
             }
-
             .lightbox-nav {
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
             }
-
             .lightbox-prev {
                 left: 15px;
             }
-
             .lightbox-next {
                 right: 15px;
             }
-
             .lightbox-close {
                 top: 15px;
                 right: 15px;
@@ -416,39 +430,44 @@
                 height: 45px;
                 font-size: 1.3rem;
             }
-
             body[dir="rtl"] .language-selector {
                 right: auto;
                 left: 10px;
             }
         }
-
+        
         @media (max-width: 480px) {
             .main-content {
                 padding: 1.5rem 2%;
             }
-
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
-
             .gallery-item img {
                 height: 180px;
             }
-
             .gallery-header h1 {
                 font-size: 1.8rem;
             }
-
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
                 padding: 1rem 2%;
             }
-
             .main-content {
                 margin-top: 120px;
             }
+        }
+        /* RTL Support için ek stiller */
+        
+        body[dir="rtl"] .back-btn i {
+            margin-right: 0;
+            margin-left: 0.5rem;
+            transform: rotate(180deg);
+        }
+        
+        body[dir="rtl"] .navbar {
+            flex-direction: row-reverse;
         }
     </style>
 </head>
@@ -482,7 +501,10 @@
         <nav class="navbar">
             <a href="index.html" class="logo">
                 <img src="logo4.png" alt="BASCOLD SOĞUTMA" class="logo-image">
-                <h1  style="font-size: 1.7rem;" data-translate="companyName">BASCOLD COOLING</h1>
+
+            </a>
+            <a href="index.html" class="logo">
+                <img src="bascold-logo.png" alt="BASCOLD" class="logo-image">
             </a>
             <a href="index.html" class="back-btn">
                 <i class="fas fa-arrow-left"></i>
@@ -535,21 +557,21 @@
         // DİL ÇEVİRİLERİ
         const translations = {
             tr: {
-                companyName: "BASCOLD SOĞUTMA",
+
                 backButton: "Ana Sayfaya Dön",
                 galleryTitle: "Ürün Galerisi",
                 galleryDescription: "Soğutma sistemi ürünlerimizin tamamını yüksek çözünürlüklü detaylı görsellerle keşfedin.",
                 copyright: "© 2024 BASCOLD Soğutma. Tüm hakları saklıdır."
             },
             en: {
-                companyName: "BASCOLD COOLING",
+
                 backButton: "Back to Homepage",
                 galleryTitle: "Product Gallery",
                 galleryDescription: "Explore our complete range of cooling system products with detailed high-resolution images.",
                 copyright: "© 2024 BASCOLD Cooling. All rights reserved."
             },
             ar: {
-                companyName: "باس كولد للتبريد",
+
                 backButton: "العودة للرئيسية",
                 galleryTitle: "معرض المنتجات",
                 galleryDescription: "اكتشف مجموعتنا الكاملة من منتجات أنظمة التبريد بصور مفصلة عالية الدقة.",
@@ -575,7 +597,7 @@
             updateLanguageSelector();
             translatePage();
             updateDirection();
-            
+
             // Dil seçicisini kapat
             document.getElementById('languageOptions').classList.remove('active');
         }
@@ -584,9 +606,9 @@
             const currentFlag = document.getElementById('currentFlag');
             const currentLang = document.getElementById('currentLang');
             const options = document.querySelectorAll('.language-option');
-            
+
             // Mevcut dili güncelle
-            switch(currentLanguage) {
+            switch (currentLanguage) {
                 case 'tr':
                     currentFlag.className = 'flag-icon flag-tr';
                     currentFlag.textContent = 'TR';
@@ -603,7 +625,7 @@
                     currentLang.textContent = 'العربية';
                     break;
             }
-            
+
             // Seçeneklerdeki aktif durumu güncelle
             options.forEach(option => {
                 option.classList.remove('active');
@@ -668,7 +690,7 @@
             const lightbox = document.getElementById('lightbox');
             const lightboxImage = document.getElementById('lightboxImage');
             const lightboxCounter = document.getElementById('lightboxCounter');
-            
+
             lightboxImage.src = galleryImages[index];
             lightboxCounter.textContent = `${index + 1} / ${galleryImages.length}`;
             lightbox.classList.add('active');
@@ -685,7 +707,7 @@
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             const lightboxImage = document.getElementById('lightboxImage');
             const lightboxCounter = document.getElementById('lightboxCounter');
-            
+
             lightboxImage.src = galleryImages[currentImageIndex];
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
         }
@@ -694,7 +716,7 @@
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             const lightboxImage = document.getElementById('lightboxImage');
             const lightboxCounter = document.getElementById('lightboxCounter');
-            
+
             lightboxImage.src = galleryImages[currentImageIndex];
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
         }
@@ -703,7 +725,7 @@
         document.addEventListener('keydown', function(e) {
             const lightbox = document.getElementById('lightbox');
             if (lightbox.classList.contains('active')) {
-                switch(e.key) {
+                switch (e.key) {
                     case 'Escape':
                         closeLightbox();
                         break;
@@ -715,7 +737,7 @@
                         break;
                 }
             }
-            
+
             // Dil seçicisini kapat
             if (e.key === 'Escape') {
                 document.getElementById('languageOptions').classList.remove('active');
@@ -774,4 +796,5 @@
         document.body.style.transition = 'opacity 0.5s ease';
     </script>
 </body>
+
 </html>
