@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -43,15 +42,11 @@
 
     <!-- Header -->
     <header class="header" id="header">
-
         <nav class="navbar">
             <a href="#home" class="logo">
                 <img src="logo4.png" alt="BASCOLD SOĞUTMA" class="logo-image">
             </a>
-            <a href="#home" class="logo">
-                <img src="bascold-logo.png" alt="BASCOLD" class="logo-image">
-            </a>
-            <!-- h1 elementini tamamen kaldırın -->
+            <h1><a href="#home" class="logo" data-translate="companyName">BASCOLD SOĞUTMA</a></h1>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" data-translate="navHome">Ana Sayfa</a></li>
                 <li><a href="#about" data-translate="navAbout">Hakkımızda</a></li>
@@ -77,21 +72,18 @@
         </div>
     </section>
 
-
+    
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
             <h2 data-translate="aboutTitle">Hakkımızda</h2>
             <div class="about-content">
                 <div class="about-text loading">
-                    <p data-translate="aboutText1">BASCOLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir
-                        ve enerji verimli soğutma sistemleri sağlamaktayız.</p>
+                    <p data-translate="aboutText1">BASCOLD Industrial Cooling Systems, endüstriyel soğutma sektöründe yenilikçi ve yüksek kaliteli çözümler sunan bir firmadır. Türkiye merkezli üretim kapasitemiz ve uluslararası deneyimimizle, dünya genelindeki işletmelere güvenilir ve enerji verimli soğutma sistemleri sağlamaktayız.</p>
 
-                    <p data-translate="aboutText2">Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun
-                        ömürlü kullanım için tasarlanmaktadır.</p>
+                    <p data-translate="aboutText2">Ürün yelpazemiz; evaporatörler, kondenserler ve komple soğutma ünitelerini kapsamakta olup, her müşterimizin ihtiyacına özel çözümler sunuyoruz. Tüm ürünlerimiz uluslararası kalite standartlarına uygun olarak test edilmekte ve uzun ömürlü kullanım için tasarlanmaktadır.</p>
 
-                    <p data-translate="aboutText3">Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BASCOLD olarak, ürünlerinizin daha hızlı soğutulmasını
-                        ve daha uzun süre korunmasını sağlamak için yanınızdayız.</p>
+                    <p data-translate="aboutText3">Müşteri memnuniyetini en öncelikli değerimiz olarak benimseyen firmamız, ihracat alanında güçlü iş ortaklıkları kurmayı ve global pazarda sürdürülebilir büyümeyi hedeflemektedir. BASCOLD olarak, ürünlerinizin daha hızlı soğutulmasını ve daha uzun süre korunmasını sağlamak için yanınızdayız.</p>
                 </div>
                 <div class="about-image loading">
                     <img src="resim2.png" alt="Fabrika Görünümü">
@@ -100,7 +92,7 @@
         </div>
     </section>
 
-
+    
 
     <!-- Full Screen Slider Modal -->
     <div class="fullscreen-slider-modal" id="fullscreenSliderModal">
@@ -108,15 +100,15 @@
             <button class="fullscreen-close" onclick="closeProjectSlider()">
                 <i class="fas fa-times"></i>
             </button>
-
+            
             <div class="fullscreen-slider" id="fullscreenSlider">
                 <!-- Slides will be dynamically generated here -->
             </div>
-
+            
             <button class="fullscreen-slider-arrows fullscreen-prev" onclick="previousProjectSlide()">
                 <i class="fas fa-chevron-left"></i>
             </button>
-
+            
             <button class="fullscreen-slider-arrows fullscreen-next" onclick="nextProjectSlide()">
                 <i class="fas fa-chevron-right"></i>
             </button>
@@ -127,7 +119,7 @@
     <section class="section products" id="products">
         <div class="container">
             <h2 data-translate="productsTitle">Ürünlerimiz</h2>
-
+            
             <!-- Image Slider -->
             <div class="image-slider" id="imageSlider">
                 <!-- Slider resimler otomatik oluşturulacak -->
@@ -160,8 +152,7 @@
                 </div>
                 <div class="service-card loading">
                     <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                        <!-- İkon değişti -->
+                        <i class="fas fa-cogs"></i> <!-- İkon değişti -->
                     </div>
                     <h3 data-translate="serviceTitle3">Kompresör</h3>
                     <p data-translate="serviceDesc3">Endüstriyel ve ticari soğutma sistemleri için yüksek performanslı, enerji verimli kompresörler</p>
@@ -241,34 +232,34 @@
     </section>
 
     <!-- Partners Section - Footer'dan önce -->
-    <section class="partners-section">
-        <div class="container">
-            <h3 data-translate="partnersTitle">İş Ortaklarımız</h3>
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <img src="sanhua-logo.jpg" alt="Sanhua">
-                </div>
-                <div class="partner-logo">
-                    <img src="weiguang-logo.jpg" alt="Weiguang Motors & Fans">
-                </div>
-                <div class="partner-logo">
-                    <img src="danfoss-logo.jpg" alt="Danfoss">
-                </div>
-                <div class="partner-logo">
-                    <img src="sanmu-logo.jpg" alt="Sanmu">
-                </div>
-                <div class="partner-logo">
-                    <img src="frascold-logo.jpg" alt="Frascold">
-                </div>
-                <div class="partner-logo">
-                    <img src="copeland-logo.jpg" alt="Copeland">
-                </div>
-                <div class="partner-logo">
-                    <img src="embraco-logo.jpg" alt="Embraco Aspera">
+        <section class="partners-section">
+            <div class="container">
+                <h3 data-translate="partnersTitle">İş Ortaklarımız</h3>
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <img src="sanhua-logo.jpg" alt="Sanhua">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="weiguang-logo.jpg" alt="Weiguang Motors & Fans">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="danfoss-logo.jpg" alt="Danfoss">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="sanmu-logo.jpg" alt="Sanmu">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="frascold-logo.jpg" alt="Frascold">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="copeland-logo.jpg" alt="Copeland">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="embraco-logo.jpg" alt="Embraco Aspera">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
@@ -309,11 +300,11 @@
         </div>
     </section>
 
-
+    
 
     <!-- Footer -->
     <footer class="footer">
-
+        
         <div class="footer-content">
             <div class="footer-section">
                 <h3 data-translate="companyName">BASCOLD SOĞUTMA</h3>
@@ -387,7 +378,7 @@
                 <h3 id="modalTitle" data-translate="modalTitle">İletişim Seçin</h3>
                 <p id="modalSubtitle" data-translate="modalSubtitle">Hangi ofisimizle iletişime geçmek istiyorsunuz?</p>
             </div>
-
+            
             <a href="#" class="contact-option modal-link" id="turkeyOption">
                 <div class="option-header">
                     <div class="option-icon turkey-icon">
@@ -423,5 +414,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
