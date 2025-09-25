@@ -213,10 +213,10 @@ body[dir="rtl"] .fixed-contact {
 }
 
 .logo-image {
-    height: 90px;
+    height: 60px;
     /* Daha küçük boyut */
     width: auto;
-    max-height: 105px;
+    max-height: 70px;
     transition: transform 0.3s ease, height 0.3s ease;
 }
 
