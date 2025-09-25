@@ -1560,3 +1560,39 @@ body[dir="rtl"] .fixed-contact {
         padding: 1rem 1% !important;
     }
 }
+
+
+/* SEO ve Performans İyileştirmeleri */
+
+img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+}
+
+
+/* Lazy loading için */
+
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+
+/* Core Web Vitals için */
+
+.hero {
+    contain: layout style paint;
+}
+
+
+/* Preload critical resources */
+
+link[rel="preload"] {
+    as: font;
+    crossorigin: anonymous;
+}

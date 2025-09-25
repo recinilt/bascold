@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://bascold.com/sitemap.xml
+Sitemap: https://www.bascold.com/sitemap.xml
+
+# Social Media
+Allow: /logo4.png
+Allow: /bascold-logo.png
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.css
+Allow: /*.js
