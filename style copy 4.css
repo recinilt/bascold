@@ -213,10 +213,10 @@ body[dir="rtl"] .fixed-contact {
 }
 
 .logo-image {
-    height: 90px;
+    height: 60px;
     /* Daha küçük boyut */
     width: auto;
-    max-height: 105px;
+    max-height: 70px;
     transition: transform 0.3s ease, height 0.3s ease;
 }
 
@@ -327,8 +327,8 @@ body[dir="rtl"] .fixed-contact {
 /* Scroll durumu için yeni stiller ekleyin */
 
 .header.scrolled .logo-image {
-    height: 60px;
-    max-height: 75px;
+    height: 40px;
+    max-height: 50px;
 }
 
 .header.scrolled h1 {
@@ -1440,8 +1440,8 @@ body[dir="rtl"] .fixed-contact {
         text-align: center;
     }
     .logo-image {
-        height: 60px;
-        max-height: 70px;
+        height: 40px;
+        max-height: 45px;
     }
     .specs-content.active {
         padding: 1rem;
@@ -1482,9 +1482,9 @@ body[dir="rtl"] .fixed-contact {
     }
     /* Scroll durumu için mobil değerler */
     .header.scrolled .logo-image {
-        height: 40px;
+        height: 20px;
         /* Mobilde yarısı: 40px / 2 = 20px */
-        max-height: 44px;
+        max-height: 22px;
         /* Mobilde yarısı: 45px / 2 = 22px */
     }
     .header.scrolled h1 {
